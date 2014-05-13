@@ -1,0 +1,9 @@
+<div class="group pull-right">
+
+  <%= link_to("New Post", new_contact_path(@contact) , :class => "btn btn-mini btn-primary") %>
+  &nbsp;
+</div>
+
+<h2> <%= truncate(@contact.name, :length => 5) %> </h2>
+
+</div>

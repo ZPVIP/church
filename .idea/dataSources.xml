@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1037785429">
+    <data-source source="LOCAL" name="Rails caachen: development" uuid="569d2e18-5280-4f8d-a692-5e0f4e8aa46d">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/caachen_development</jdbc-url>
+      <user-name>root</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails caachen: test" uuid="744f72e9-f418-4955-8fa0-50bf4ec98b56">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/caachen_test</jdbc-url>
+      <user-name>root</user-name>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails caachen: production" uuid="3b22b5ff-0ff1-4728-a657-dfc22b7c9f8a">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/caachen_production</jdbc-url>
+      <user-name>root</user-name>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+

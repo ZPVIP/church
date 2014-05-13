@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1>联系人 <small>小组</small></h1>
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
+      <li class="active"><i class="fa fa-table"></i> 小组列表</li>
+    </ol>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
+      <thead>
+      <tr>
+        <td> #</td>
+        <td> <i class="fa fa-user"></i> 小组名称 <i class="fa fa-sort"></i></td>
+        <td> <i class="fa fa-phone"></i> 备注 <i class="fa fa-sort"></i></td>
+        <td> &nbsp;</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @groups.each do |group| %>
+          <tr>
+            <td> <%= group.id %></td>
+            <td> <%= link_to group.name, edit_group_path(group) %></td>
+            <td> <span title="<%=group.description  %>"><%= truncate(group.description, :length => 20) %></span> </td>
+            <td>
+              <%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, group_path(group), :class => "red", :method => :delete, data: { confirm: '你确定吗？' }) %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /.row -->
