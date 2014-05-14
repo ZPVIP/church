@@ -1,15 +1,15 @@
 <%= simple_form_for @contact do |f| %>
     <%= f.input :name, label: '姓名' %>
+    <%= f.association :participated_groups, label: '小组', as: :check_boxes, :include_blank => false %>
     <%= f.input :gender, as: :radio_buttons, collection: [['男', 1] ,['女', 0]], label: '性别' %>
     <%= f.input :telephone, label: '座机',placeholder: '+49 241 1234 5678'%>
     <%= f.input :mobile, label: '手机', placeholder: '+49 176 1234 5678'%>
     <%= f.input :email, placeholder: 'CAachen@gmail.com'%>
     <%= f.input :address, label: '地址', placeholder: 'Roermonder straße 110 52072 Aachen'%>
-    <%= f.input :birthday, label: '生日', :as => :string, wrapper_html: { id: 'datetimepicker1' }, placeholder: '年-月-日, YYYY-MM-DD' %>
-    <%= f.input :come, label: '第一次来', :as => :string, wrapper_html: { id: 'datetimepicker2' }, placeholder: '年-月-日, YYYY-MM-DD'  %>
-    <%= f.input :go, label: '离开亚琛', :as => :string, wrapper_html: { id: 'datetimepicker3' }, placeholder: '年-月-日, YYYY-MM-DD'  %>
+    <%= f.input :birthday, label: '生日', :as => :string, wrapper_html: { id: 'datetimepicker1' }, placeholder: '年-月-日, 格式：YYYY-MM-DD，如果年份未知，请写1900年' %>
+    <%= f.input :come, label: '第一次来', :as => :string, wrapper_html: { id: 'datetimepicker2' }, placeholder: '年-月-日, 格式：YYYY-MM-DD'  %>
+    <%= f.input :go, label: '离开亚琛', :as => :string, wrapper_html: { id: 'datetimepicker3' }, placeholder: '年-月-日, 格式：YYYY-MM-DD'  %>
     <%= f.input :comment, label: '备注' %>
-    <%= f.association :participated_groups, label: '小组', as: :check_boxes, :include_blank => false %>
     <div class="form-actions">
       <%= f.submit "提交", data: {disable_with: '正在提交...' }, :class => "btn btn-primary"%>
     </div>
