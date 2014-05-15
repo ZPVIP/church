@@ -41,6 +41,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
+      <li><%= link_to('<i class="fa fa-user"></i> 欢迎'.html_safe, root_path ) %></li>
       <li><%= link_to('<i class="fa fa-user"></i> 联系人列表'.html_safe, contacts_path ) %></li>
       <li><%= link_to('<i class="fa fa-edit"></i> 添加联系人'.html_safe, new_contact_path ) %></li>
       <li><%= link_to('<i class="fa fa-users"></i> 小组列表'.html_safe, groups_path ) %></li>
@@ -55,7 +56,7 @@
       <% else %>
           <li> <%= link_to("注册", new_user_registration_path) %> </li>
           <li> <%= link_to("登录", new_user_session_path) %> </li>
-          <li> <%= link_to "忘记密码?", new_password_path(resource_name) %>  </li>
+          <li> <%= link_to "忘记密码?", new_password_path(:user) %>  </li>
       <% end %>
 
 
@@ -99,6 +100,7 @@
 
 <!--script src="http://cdn.staticfile.org/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script-->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+
 <script type="text/javascript">
     $(function() {
         $("table").tablesorter({debug: true});

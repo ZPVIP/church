@@ -1,5 +1,5 @@
 module LayoutHelper
   def homepage_name
-    '联系人管理系统'
+    '亚琛团契'
   end
 end

@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :login_required
+  before_action :login_required, :admin_required
   # GET /groups
   # GET /groups.json
   def index
@@ -10,6 +10,8 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group=Group.find(params[:id])
+    @contacts=@group.members
   end
 
   # GET /groups/new

@@ -1,4 +1,13 @@
-<h2>Forgot your password?</h2>
+<div class="row">
+  <div class="col-lg-12">
+    <h1><%=homepage_name %> <small>忘记密码</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
+      <li class="active"><i class="fa fa-table"></i> 忘记密码</li>
+    </ol>
+  </div>
+</div><!-- /.row -->
 
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= f.error_notification %>
@@ -8,7 +17,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
+    <%= f.button :submit, "给我发送修改密码链接" %>
   </div>
 <% end %>
 

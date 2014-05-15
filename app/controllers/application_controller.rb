@@ -20,13 +20,12 @@ class ApplicationController < ActionController::Base
         }
       end
     end
-
   end
 
 
-  def require_is_admin
-    unless (current_user && current_user.admin?)
-      redirect_to root_path, :flash => {:error => "no permission"}
+  def admin_required
+    unless current_user && current_user.admin?
+      redirect_to root_path, :flash => {:error => "您没有访问权限！"}
     end
   end
 

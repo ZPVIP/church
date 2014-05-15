@@ -3,7 +3,7 @@ Caachen::Application.routes.draw do
   devise_for :users
   resources :groups
 
-  root :to => 'contacts#index'
+  root :to => 'pages#welcome'
   resources :contacts
 
   # The priority is based upon order of creation: first created -> highest priority.

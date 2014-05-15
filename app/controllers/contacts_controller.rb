@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :login_required
+  before_action :login_required, :admin_required
 
   def index
     @contacts = Contact.all
