@@ -4,7 +4,11 @@ Caachen::Application.routes.draw do
   resources :groups
 
   root :to => 'pages#welcome'
-  resources :contacts
+  resources :contacts do
+    collection do
+      #match 'suchen' => 'contacts#suchen', via: [:get, :post], as: :suchen
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -46,7 +50,7 @@ Caachen::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'

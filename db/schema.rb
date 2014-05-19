@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515195146) do
+ActiveRecord::Schema.define(version: 20140519193208) do
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -27,6 +27,10 @@ ActiveRecord::Schema.define(version: 20140515195146) do
     t.date     "come"
     t.date     "go"
   end
+
+  add_index "contacts", ["birthday"], name: "index_contacts_on_birthday", using: :btree
+  add_index "contacts", ["created_at"], name: "index_contacts_on_created_at", using: :btree
+  add_index "contacts", ["name"], name: "index_contacts_on_name", using: :btree
 
   create_table "group_contacts", force: true do |t|
     t.integer  "group_id"
@@ -60,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140515195146) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

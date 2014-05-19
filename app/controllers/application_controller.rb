@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :detect_device_type
 
   protect_from_forgery with: :exception
 
@@ -30,11 +31,27 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
     devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :name, :email, :password, :remember_me) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
 
+  end
+
+
+  private
+  def detect_device_type
+    case request.user_agent
+      when /ip(hone|od)/i
+        request.variant = :phone
+      when /android.+mobile/i
+        request.variant = :phone
+      when /Windows Phone/i
+        request.variant = :phone
+      when /ipad/i
+        request.variant = :pad
+      when /android|silk/i
+        request.variant = :pad
+    end
   end
 end

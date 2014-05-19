@@ -2,7 +2,15 @@ class ContactsController < ApplicationController
   before_action :login_required, :admin_required
 
   def index
-    @contacts = Contact.all
+    #@contacts = Contact.all
+    @q = Contact.search(params[:q])
+    @contacts = @q.result.includes(:participated_groups).paginate(:page => params[:page], :per_page => 3)
+    respond_to do |format|
+      format.json
+      format.html          # /app/views/contacts/index.html.erb
+      format.html.phone    # /app/views/contacts/index.html+phone.erb
+      format.html.pad      # /app/views/contacts/index.html+pad.erb
+    end
   end
 
   def show
@@ -27,7 +35,7 @@ class ContactsController < ApplicationController
   def update
     @contact = Contact.find(params[:id])
     p contact_params
-    @contact.update(contact_params) ? (redirect_to contacts_path(@contact)) : (render :edit)
+    @contact.update(contact_params) ? (redirect_to contacts_path) : (render :edit)
   end
 
   def destroy
@@ -36,9 +44,15 @@ class ContactsController < ApplicationController
     redirect_to contacts_path(@contact)
   end
 
+  def suchen
+    @search = Contact.search(params[:q])
+    @contacts = @search.result.includes( :participated_groups)
+    p @contacts
+  end
+
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :gender, :telephone, :mobile, :email, :address, :birthday, :created_at, :comment, :come, :go, :participated_group_ids => [])
+    params.require(:contact).permit(:name, :gender, :telephone, :mobile, :email, :address, :birthday, :created_at, :comment, :come, :go, :q => [], :participated_group_ids => [])
   end
 end

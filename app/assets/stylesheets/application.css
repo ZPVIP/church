@@ -69,7 +69,6 @@ body {
     font-size: 12px;
 }
 
-
 /* Nav Announcements */
 
 .announcement-heading {
@@ -104,10 +103,9 @@ table.tablesorter thead tr th:hover {
 }
 
 /* Edit Below to Customize Widths > 768px */
-@media (min-width:768px) {
+@media (min-width: 768px) {
 
     /* Wrappers */
-
     #wrapper {
         padding-left: 225px;
     }
@@ -117,7 +115,6 @@ table.tablesorter thead tr th:hover {
     }
 
     /* Side Nav */
-
     .side-nav {
         margin-left: -225px;
         left: 225px;
@@ -132,8 +129,7 @@ table.tablesorter thead tr th:hover {
     }
 
     /* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
-
-    .side-nav>li.dropdown>ul.dropdown-menu {
+    .side-nav > li.dropdown > ul.dropdown-menu {
         position: relative;
         min-width: 225px;
         margin: 0;
@@ -145,29 +141,28 @@ table.tablesorter thead tr th:hover {
         -webkit-box-shadow: none;
     }
 
-    .side-nav>li.dropdown>ul.dropdown-menu>li>a {
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a {
         color: #999999;
         padding: 15px 15px 15px 25px;
     }
 
-    .side-nav>li.dropdown>ul.dropdown-menu>li>a:hover,
-    .side-nav>li.dropdown>ul.dropdown-menu>li>a.active,
-    .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a:hover,
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a.active,
+    .side-nav > li.dropdown > ul.dropdown-menu > li > a:focus {
         color: #fff;
         background-color: #080808;
     }
 
-    .side-nav>li>a {
+    .side-nav > li > a {
         width: 225px;
     }
 
-    .navbar-inverse .navbar-nav>li>a:hover,
-    .navbar-inverse .navbar-nav>li>a:focus {
+    .navbar-inverse .navbar-nav > li > a:hover,
+    .navbar-inverse .navbar-nav > li > a:focus {
         background-color: #080808;
     }
 
     /* Nav Messages */
-
     .messages-dropdown .dropdown-menu {
         min-width: 300px;
     }
@@ -192,18 +187,70 @@ table.tablesorter thead tr th:hover {
     .green {
         color: green;
     }
-    .checkbox, .radio{
+
+    .checkbox, .radio {
         display: inline-block;
         padding-right: 20px;
     }
 }
-    .form-actions {
-        text-align: right;
-        width: 16.6667%;
-        padding-right: 30px;
-    }
 
-    .Hinweis{
-        border-bottom: 1px dashed #0000FF;
-        color: #0000FF;
-    }
+.form-actions {
+    text-align: right;
+    width: 16.6667%;
+    padding-right: 30px;
+}
+
+.Hinweis {
+    border-bottom: 1px dashed #0000FF;
+    color: #0000FF;
+}
+
+.flickr_pagination {
+    text-align: left;
+    padding: 0.3em;
+    cursor: default;
+}
+
+.flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+    padding: 0.2em 0.5em;
+}
+
+.flickr_pagination .disabled {
+    color: #aaaaaa;
+}
+
+.flickr_pagination .current {
+    font-style: normal;
+    font-weight: bold;
+    border: 1px solid #dddddd;
+    color: #ff0084;
+}
+
+.flickr_pagination a {
+    border: 1px solid #dddddd;
+    color: #0063dc;
+    text-decoration: none;
+}
+
+.flickr_pagination a:hover, .flickr_pagination a:focus {
+    border-color: #003366;
+    background: #0063dc;
+    color: white;
+}
+
+.flickr_pagination .page_info {
+    color: #aaaaaa;
+    padding-top: 0.8em;
+}
+
+.flickr_pagination .previous_page, .flickr_pagination .next_page {
+    border-width: 2px;
+}
+
+.flickr_pagination .previous_page {
+    margin-right: 1em;
+}
+
+.flickr_pagination .next_page {
+    margin-left: 1em;
+}
