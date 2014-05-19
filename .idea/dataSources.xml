@@ -17,9 +17,10 @@
     </data-source>
     <data-source source="LOCAL" name="Rails caachen: production" uuid="3b22b5ff-0ff1-4728-a657-dfc22b7c9f8a">
       <driver-ref>mysql</driver-ref>
-      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/caachen_production</jdbc-url>
-      <user-name>root</user-name>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-217-211-247.eu-west-1.compute.amazonaws.com:5432/ddk66ak5peln61</jdbc-url>
+      <user-name>kvmctimcdyxjvs</user-name>
+      <user-password>dfccdfd9dfe6dfe4dfd3dfdfdf9adfdfdfe0dfdedfdcdfefdfcbdfffdfe7dfd3dff8dfdddf9edff2dff3dfc4dfebdfcfdfe5dfd3</user-password>
       <libraries />
     </data-source>
   </component>
