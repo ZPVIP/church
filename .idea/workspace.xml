@@ -50,10 +50,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="24" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.84974957" vertical-offset="346" max-vertical-offset="975">
+            <state line="57" column="24" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="975">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="87" selection-start="479" selection-end="479" vertical-scroll-proportion="0.20930232" vertical-offset="0" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
@@ -100,17 +109,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="224" column="30" selection-start="4721" selection-end="4721" vertical-scroll-proportion="0.0" vertical-offset="3094" max-vertical-offset="3915">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="55" selection-start="611" selection-end="626" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="315">
-              <folding>
-                <marker date="1400097210000" expanded="true" signature="1060:1160" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -172,6 +170,7 @@
         <option value="$PROJECT_DIR$/db/migrate/20140519193208_add_index_to_tables.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
       </list>
     </option>
   </component>
@@ -638,7 +637,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="22" width="1280" height="1002" extended-state="7" />
+    <frame x="1440" y="22" width="1280" height="1002" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -673,11 +672,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/scaffolds.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="483" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20140513211431_devise_create_users.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
@@ -914,7 +908,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="55" selection-start="611" selection-end="626" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="315">
           <folding>
-            <marker date="1400097210000" expanded="true" signature="1060:1160" placeholder="..." />
+            <marker date="1400097210000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -977,7 +971,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="24" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.84974957" vertical-offset="346" max-vertical-offset="975">
+        <state line="57" column="24" selection-start="1402" selection-end="1402" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="87" selection-start="479" selection-end="479" vertical-scroll-proportion="0.20930232" vertical-offset="0" max-vertical-offset="645">
           <folding />
         </state>
       </provider>
