@@ -5,9 +5,13 @@
     <%= f.input :telephone, label: '座机',placeholder: '+49 241 1234 5678'%>
     <%= f.input :mobile, label: '手机', placeholder: '+49 176 1234 5678'%>
     <%= f.input :email, placeholder: 'CAachen@gmail.com'%>
+    <%= f.input :wechat,label: '微信', placeholder: '微信号'%>
     <%= f.input :address, label: '地址', placeholder: 'Roermonder straße 110 52072 Aachen'%>
     <%= f.input :birthday, label: '生日', :as => :string, wrapper_html: { id: 'datetimepicker1' }, placeholder: '年-月-日, 格式：YYYY-MM-DD，如果年份未知，请写1900年' %>
     <%= f.input :come, label: '第一次来', :as => :string, wrapper_html: { id: 'datetimepicker2' }, placeholder: '年-月-日, 格式：YYYY-MM-DD'  %>
+    <%= f.input :decision, label: '决志日期', :as => :string, wrapper_html: { id: 'datetimepicker2' }, placeholder: '年-月-日, 格式：YYYY-MM-DD'  %>
+    <%= f.input :decision_with, label: '决志带领人', :as => :string  %>
+    <%= f.input :baptism, label: '受洗日期', :as => :string, wrapper_html: { id: 'datetimepicker2' }, placeholder: '年-月-日, 格式：YYYY-MM-DD'  %>
     <%= f.input :go, label: '离开亚琛', :as => :string, wrapper_html: { id: 'datetimepicker3' }, placeholder: '年-月-日, 格式：YYYY-MM-DD'  %>
     <%= f.input :comment, label: '备注' %>
     <div class="form-actions">

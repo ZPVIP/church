@@ -1,9 +1,80 @@
-<div class="group pull-right">
+<div class="row">
+  <div class="col-lg-12">
+    <h1><%= homepage_name %>
+      <small>联系人详细信息</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
+      <li class="active"><i class="fa fa-user"></i> <%=@contact.name %></li>
+    </ol>
+  </div>
+</div><!-- /.row -->
 
-  <%= link_to("New Post", new_contact_path(@contact) , :class => "btn btn-mini btn-primary") %>
-  &nbsp;
-</div>
+<h2>
+  <% if @contact.gender==0 %>
+      <span class="red"> <%= @contact.name %></span>
+  <% else %>
+      <span class="blue"> <%= @contact.name %></span>
+  <% end %>
+</h2>
 
-<h2> <%= truncate(@contact.name, :length => 5) %> </h2>
 
+
+<div class="row">
+  <div class="col-lg-12">
+
+    <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
+
+      <tr>
+        <td width="20%"><i class="fa fa-phone"></i> 座机</td>
+        <td> <%= @contact.telephone %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-phone"></i> 手机</td>
+        <td> <%= @contact.mobile %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-envelope"></i> Email</td>
+        <td> <%= @contact.email %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-home"></i> 地址</td>
+        <td> <%= @contact.address %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-wechat"></i> Wechat</td>
+        <td> <%= @contact.wechat %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-calendar"></i> 生日</td>
+        <td> <%= @contact.birthday %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="第一次来团契">首访</span></td>
+        <td> <%= @contact.come %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-calendar"></i> 决志</td>
+        <td> <%= @contact.decision %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="谁带领决志祷告">带领</span></td>
+        <td> <%= @contact.decision_with %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-calendar"></i> 受洗</td>
+        <td> <%= @contact.baptism %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="离开Aachen">离开</span></td>
+        <td> <%= @contact.go %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-comment"></i> 备注</td>
+        <td> <%= @contact.comment %> </td>
+      </tr>
+
+    </table>
+  </div>
+</div><!-- /.row -->
 </div>

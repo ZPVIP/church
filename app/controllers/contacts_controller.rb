@@ -53,6 +53,6 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :gender, :telephone, :mobile, :email, :address, :birthday, :created_at, :comment, :come, :go, :q => [], :participated_group_ids => [])
+    params.require(:contact).permit(:name, :gender, :telephone, :mobile, :email, :wechat, :address, :birthday, :come, :decision, :decision_with, :baptism, :go,:created_at, :comment,  :q => [], :participated_group_ids => [])
   end
 end

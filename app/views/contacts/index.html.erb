@@ -21,39 +21,80 @@
     <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
       <thead>
       <tr>
-        <td> #</td>
-        <td><i class="fa fa-user"></i> 姓名 <i class="fa fa-sort"></i></td>
-        <td><i class="fa fa-phone"></i> 座机 <i class="fa fa-sort"></i></td>
-        <td><i class="fa fa-mobile"></i> 手机 <i class="fa fa-sort"></i></td>
-        <td><i class="fa fa-envelope"></i> Email <i class="fa fa-sort"></i></td>
-        <td><i class="fa fa-calendar"></i> 生日 <i class="fa fa-sort"></i></td>
-        <td><i class="fa fa-calendar"> 第一次来</td>
-        <td><i class="fa fa-home"></i> 地址</td>
+        <td><i class="fa fa-user"></i> <span class="Hinweis" title="点击查看详细信息">姓名</span> <i class="fa fa-sort"></i></td>
+        <td><i class="fa fa-phone"></i> 手机</td>
+        <td><i class="fa fa-envelope"></i> Email</td>
+        <td><i class="fa fa-wechat"></i> Wechat</td>
+        <td><i class="fa fa-calendar"></i> 生日</td>
+        <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="第一次来团契">首访</span></td>
+        <td><i class="fa fa-calendar"></i> 决志</td>
+        <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="谁带领决志祷告">带领</span></td>
+        <td><i class="fa fa-calendar"></i> 受洗</td>
+        <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="离开Aachen">离开</span></td>
         <td><i class="fa fa-comment"></i> 备注</td>
+        <td> &nbsp;</td>
         <td> &nbsp;</td>
       </tr>
       </thead>
       <tbody>
       <% @contacts.each do |contact| %>
           <tr>
-            <td> <%= contact.id %></td>
-            <td> <%= link_to(edit_contact_path(contact)) do %>
+            <td> <%= link_to(contact_path(contact)) do %>
                   <% if contact.gender==0 %>
-                      <i class="fa fa-female lg red"> <%= contact.name %></i>
+                      <i class="fa fa-female lg red"></i> <%= contact.name %>
                   <% else %>
-                      <i class="fa fa-male lg blue"> <%= contact.name %></i>
+                      <i class="fa fa-male lg blue"></i> <%= contact.name %>
                   <% end end %> </td>
-            <td> <%= contact.telephone %> </td>
             <td> <%= contact.mobile %> </td>
-            <td> <%= contact.email %> </td>
-            <td> <%= contact.birthday %> </td>
-            <td> <%= contact.come %> </td>
             <td>
-              <% unless contact.address.blank? %>
-                  <span class="Hinweis" title="<%= contact.address %>"><i class="fa fa-home"></i> 查看</span>
-              <% end %> </td>
+              <% unless contact.email.nil? then
+                   if contact.email.length > 20 %>
+                      <span class="Hinweis" title="<%= contact.email %>"><%= truncate(contact.email, :length => 20) %></span>
+                  <% else %>
+                      <%= contact.email %>
+                  <% end end %>
+            </td>
             <td>
-              <span class="Hinweis" title="<%= contact.comment %>"><%= truncate(contact.comment, :length => 10) %></span>
+              <% unless contact.wechat.nil? then
+                   if contact.wechat.length > 15 %>
+                      <span class="Hinweis" title="<%= contact.wechat %>"><%= truncate(contact.wechat, :length => 15) %></span>
+                  <% else %>
+                      <%= contact.wechat %>
+                  <% end end %>
+            </td>
+            <td>
+              <% unless contact.birthday.nil? %><%= contact.birthday.strftime('%Y-%m') %>
+              <% end %></td>
+            <td>
+              <% unless contact.come.nil? %><%= contact.come.strftime('%Y-%m') %>
+              <% end %></td>
+            <td>
+              <% unless contact.decision.nil? %><%= contact.decision.strftime('%Y-%m') %>
+              <% end %></td>
+            <td>
+              <% unless contact.decision_with.nil? then
+                   if contact.decision_with.length > 4 %>
+                      <span class="Hinweis" title="<%= contact.decision_with %>"><%= truncate(contact.decision_with, :length => 4) %></span>
+                  <% else %>
+                      <%= contact.decision_with %>
+                  <% end end %>
+            </td>
+            <td>
+              <% unless contact.baptism.nil? %><%= contact.baptism.strftime('%Y-%m') %>
+              <% end %></td>
+            <td>
+              <% unless contact.go.nil? %><%= contact.go.strftime('%Y-%m') %>
+              <% end %></td>
+            <td>
+              <% unless contact.comment.nil? then
+                   if contact.comment.length > 5 %>
+                      <span class="Hinweis" title="<%= contact.comment %>"><%= truncate(contact.comment, :length => 5) %></span>
+                  <% else %>
+                      <%= contact.comment %>
+                  <% end end %>
+            </td>
+            <td>
+              <%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_contact_path(contact), :class => "blue")  %>
             </td>
             <td>
               <%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, contact_path(contact), :class => "red", :method => :delete, data: {confirm: '你确定吗？'}) %>
@@ -75,12 +116,12 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <%= search_form_for @q, :builder => SimpleForm::FormBuilder, url: contacts_path, html: {method: :get,class: 'simple_form form-horizontal'} do |f| %><!--:builder => SimpleForm::FormBuilder, -->
+    <%= search_form_for @q, :builder => SimpleForm::FormBuilder, url: contacts_path, html: {method: :get, class: 'simple_form form-horizontal'} do |f| %><!--:builder => SimpleForm::FormBuilder, -->
 
         <%= f.input :name_cont, label: '姓名含有', :required => false %>
         <%= f.input :mobile_cont, label: '手机含有', :required => false %>
         <%= f.input :email_cont, label: 'Email 含有', :required => false %>
-        <%= f.input :participated_groups_id_eq, :collection =>Group.all.map { |g| [g.name, g.id] }, input_html: { class: 'special' },  include_blank: true, label: '属于小组', :required => false  %>
+        <%= f.input :participated_groups_id_eq, :collection => Group.all.map { |g| [g.name, g.id] }, input_html: {class: 'special'}, include_blank: true, label: '属于小组', :required => false %>
         <%= f.submit "查找", data: {disable_with: '正在努力查找中...'}, :class => "btn btn-primary" %>
     <% end %>
 
