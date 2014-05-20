@@ -59,10 +59,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="89" selection-start="950" selection-end="996" vertical-scroll-proportion="-5.0" vertical-offset="300" max-vertical-offset="2010">
+            <state line="75" column="54" selection-start="3123" selection-end="3123" vertical-scroll-proportion="0.34020618" vertical-offset="960" max-vertical-offset="2010">
               <folding />
             </state>
           </provider>
@@ -95,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="66" selection-start="806" selection-end="812" vertical-scroll-proportion="0.30927834" vertical-offset="0" max-vertical-offset="485">
+            <state line="2" column="12" selection-start="89" selection-end="89" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="375">
               <folding />
             </state>
           </provider>
@@ -170,10 +170,10 @@
         <option value="$PROJECT_DIR$/db/migrate/20140520202818_change_datetime_to_date.rb" />
         <option value="$PROJECT_DIR$/app/helpers/contacts_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/contacts/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/contacts/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
       </list>
     </option>
   </component>
@@ -1020,13 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="89" selection-start="950" selection-end="996" vertical-scroll-proportion="-5.0" vertical-offset="300" max-vertical-offset="2010">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="27" selection-start="72" selection-end="72" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="375">
@@ -1036,7 +1029,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="66" selection-start="806" selection-end="812" vertical-scroll-proportion="0.30927834" vertical-offset="0" max-vertical-offset="485">
+        <state line="2" column="12" selection-start="89" selection-end="89" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="54" selection-start="3123" selection-end="3123" vertical-scroll-proportion="0.34020618" vertical-offset="960" max-vertical-offset="2010">
           <folding />
         </state>
       </provider>

@@ -73,8 +73,8 @@
               <% end %></td>
             <td>
               <% unless contact.decision_with.nil? then
-                   if contact.decision_with.length > 4 %>
-                      <span class="Hinweis" title="<%= contact.decision_with %>"><%= truncate(contact.decision_with, :length => 4) %></span>
+                   if contact.decision_with.length > 6 %>
+                      <span class="Hinweis" title="<%= contact.decision_with %>"><%= truncate(contact.decision_with, :length => 6) %></span>
                   <% else %>
                       <%= contact.decision_with %>
                   <% end end %>
