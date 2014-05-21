@@ -6,6 +6,10 @@ class Admin::UsersController < ApplicationController
     @users = User.all
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def new
     @user = User.new
   end
@@ -35,12 +39,13 @@ class Admin::UsersController < ApplicationController
       end
     end
 
-    if @user.update_attributes(params[:user])
+    if @user.update(user_params) then
       flash[:notice] = "Successfully updated User."
-      redirect_to root_path
+      redirect_to admin_users_path
     else
-      render :action => 'edit'
+      render :edit
     end
+
   end
 
   def destroy
@@ -51,5 +56,10 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :username, :email)
+  end
 end
 

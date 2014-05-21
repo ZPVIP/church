@@ -1,33 +1,8 @@
-<%= form_for [:admin, @user] do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for [:admin, @user] do |f| %>
+    <%= f.input :username, label: '用户名' %>
+    <%= f.input :name, label: '真名' %>
+    <%= f.input :email, placeholder: 'CAachen@gmail.com' %>
+    <div class="form-actions">
+      <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-
-  <% if password.eql? true %>
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
-    </div>
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

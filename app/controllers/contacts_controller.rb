@@ -34,7 +34,6 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find(params[:id])
-    p contact_params
     @contact.update(contact_params) ? (redirect_to contacts_path) : (render :edit)
   end
 
@@ -42,12 +41,6 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     @contact.destroy
     redirect_to contacts_path(@contact)
-  end
-
-  def suchen
-    @search = Contact.search(params[:q])
-    @contacts = @search.result.includes( :participated_groups)
-    p @contacts
   end
 
   private
