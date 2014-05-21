@@ -175,27 +175,27 @@ table.tablesorter thead tr th:hover {
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
+}
 
-    .red {
-        color: red;
-    }
+.red {
+    color: red;
+}
 
-    .blue {
-        color: blue;
-    }
+.blue {
+    color: blue;
+}
 
-    .green {
-        color: green;
-    }
+.green {
+    color: green;
+}
 
-    .checkbox, .radio {
-        display: inline-block;
-        padding-right: 20px;
-    }
+.checkbox, .radio {
+    display: inline-block;
+    padding-right: 20px;
+}
 
-    a:hover{
-        text-decoration: none;
-    }
+a:hover {
+    text-decoration: none;
 }
 
 .form-actions {

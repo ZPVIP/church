@@ -3,6 +3,10 @@ Caachen::Application.routes.draw do
   devise_for :users
   resources :groups
 
+  namespace :admin do
+    resources :users
+  end
+
   root :to => 'pages#welcome'
   resources :contacts do
     collection do
