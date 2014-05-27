@@ -1,0 +1,8 @@
+<%= simple_form_for [:admin, @permission] do |f| %>
+    <%= f.input :action %>
+    <%= f.input :subject %>
+    <%= f.input :description %>
+    <div class="form-actions">
+      <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary" %>
+    </div>
+<% end %>

@@ -27,6 +27,7 @@ gem 'devise'
 # for search https://github.com/activerecord-hackery/ransack
 gem "ransack"
 gem 'will_paginate', '~> 3.0'
+gem 'cancancan', '~> 1.8'
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

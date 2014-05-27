@@ -1,6 +1,5 @@
 class Admin::UsersController < ApplicationController
-
-  before_filter :login_required, :admin_required
+  load_and_authorize_resource
 
   def index
     @users = User.all
@@ -32,20 +31,24 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if params[:user][:password].blank?
-      params[:user].delete(:password)
-      if params[:user][:password_confirmation].blank?
-        params[:user].delete(:password_confirmation)
+    if params[:password].blank?
+      params.delete(:password)
+      if params[:password_confirmation].blank?
+        params.delete(:password_confirmation)
       end
     end
 
-    if @user.update(user_params) then
-      flash[:notice] = "Successfully updated User."
+    if params[:id] == current_user.id.to_s
+      flash[:warn] = "你不能在这里修改自己的信息，请点击右上角的设置"
       redirect_to admin_users_path
     else
-      render :edit
+      if @user.update(user_params)
+        flash[:notice] = "Successfully updated User."
+        redirect_to admin_users_path
+      else
+        render :edit
+      end
     end
-
   end
 
   def destroy
@@ -59,7 +62,7 @@ class Admin::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :email)
+    params.require(:user).permit(:name, :username, :email, :blocked, :permission_ids => [])
   end
 end
 

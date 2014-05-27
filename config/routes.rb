@@ -1,10 +1,14 @@
 Caachen::Application.routes.draw do
 
+  resources :gatherings
+
   devise_for :users
   resources :groups
+  resources :friends
 
   namespace :admin do
     resources :users
+    resources :permissions
   end
 
   root :to => 'pages#welcome'

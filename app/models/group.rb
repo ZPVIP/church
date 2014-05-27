@@ -1,4 +1,4 @@
 class Group < ActiveRecord::Base
-  has_many :group_contacts
-  has_many :members, :through => :group_contacts, :source => :contact
+  has_many :contact_groups
+  has_many :members, :through => :contact_groups, :source => :contact
 end

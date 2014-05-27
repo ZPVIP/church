@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521211834) do
+ActiveRecord::Schema.define(version: 20140527205204) do
+
+  create_table "contact_gatherings", force: true do |t|
+    t.integer  "contact_id"
+    t.integer  "gathering_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contact_groups", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "contact_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contacts", force: true do |t|
     t.string   "name"
@@ -30,15 +44,23 @@ ActiveRecord::Schema.define(version: 20140521211834) do
     t.string   "decision_with"
     t.date     "baptism"
     t.string   "wechat"
+    t.string   "job"
+    t.integer  "find_us"
+    t.string   "find_us_additional"
+    t.integer  "friend_id"
+    t.text     "pray"
+    t.boolean  "authenticated",      default: false
+    t.string   "native_place"
+    t.string   "register_ip"
   end
 
   add_index "contacts", ["birthday"], name: "index_contacts_on_birthday", using: :btree
   add_index "contacts", ["created_at"], name: "index_contacts_on_created_at", using: :btree
   add_index "contacts", ["name"], name: "index_contacts_on_name", using: :btree
 
-  create_table "group_contacts", force: true do |t|
-    t.integer  "group_id"
-    t.integer  "contact_id"
+  create_table "gatherings", force: true do |t|
+    t.string   "gathering"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,6 +71,22 @@ ActiveRecord::Schema.define(version: 20140521211834) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "permissions", force: true do |t|
+    t.string   "action"
+    t.string   "subject"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions_users", id: false, force: true do |t|
+    t.integer "permission_id"
+    t.integer "user_id"
+  end
+
+  add_index "permissions_users", ["permission_id", "user_id"], name: "index_permissions_users_on_permission_id_and_user_id", using: :btree
+  add_index "permissions_users", ["user_id", "permission_id"], name: "index_permissions_users_on_user_id_and_permission_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false
@@ -64,7 +102,7 @@ ActiveRecord::Schema.define(version: 20140521211834) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.boolean  "admin",                  default: false
+    t.boolean  "blocked",                default: false
     t.string   "username"
   end
 

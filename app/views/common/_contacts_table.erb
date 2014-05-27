@@ -1,16 +1,16 @@
 <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
   <thead>
   <tr>
-    <td><i class="fa fa-user"></i> <span class="Hinweis" title="点击查看详细信息">姓名</span> <i class="fa fa-sort"></i></td>
+    <td><i class="fa fa-user"></i> <span class="Hinweis" rel="tooltip" title="点击查看详细信息">姓名</span> <i class="fa fa-sort"></i></td>
     <td><i class="fa fa-phone"></i> 电话</td>
     <td><i class="fa fa-envelope"></i> Email</td>
-    <td><i class="fa fa-wechat"></i> Wechat</td>
+    <td><i class="fa fa-wechat"></i> 微信</td>
     <td><i class="fa fa-calendar"></i> 生日</td>
-    <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="第一次来团契">首访</span></td>
+    <td><i class="fa fa-calendar"></i> <span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span></td>
     <td><i class="fa fa-calendar"></i> 决志</td>
-    <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="谁带领决志祷告">带领</span></td>
+    <td><i class="fa fa-user"></i> <span class="Hinweis" rel="tooltip" title="谁带领决志祷告">带领</span></td>
     <td><i class="fa fa-calendar"></i> 受洗</td>
-    <td><i class="fa fa-calendar"></i> <span class="Hinweis" title="离开Aachen">离开</span></td>
+    <td><i class="fa fa-calendar"></i> <span class="Hinweis" rel="tooltip" title="离开Aachen">离开</span></td>
     <td><i class="fa fa-comment"></i> 备注</td>
     <td> &nbsp;</td>
     <td> &nbsp;</td>
@@ -35,7 +35,7 @@
         <td>
           <% unless contact.email.nil? then
                if contact.email.length > 20 %>
-                  <span class="Hinweis" title="<%= contact.email %>"><%= truncate(contact.email, :length => 20) %></span>
+                  <span class="Hinweis" rel="tooltip" title="<%= contact.email %>"><%= truncate(contact.email, :length => 20) %></span>
               <% else %>
                   <%= contact.email %>
               <% end end %>
@@ -43,7 +43,7 @@
         <td>
           <% unless contact.wechat.nil? then
                if contact.wechat.length > 15 %>
-                  <span class="Hinweis" title="<%= contact.wechat %>"><%= truncate(contact.wechat, :length => 15) %></span>
+                  <span class="Hinweis" rel="tooltip" title="<%= contact.wechat %>"><%= truncate(contact.wechat, :length => 15) %></span>
               <% else %>
                   <%= contact.wechat %>
               <% end end %>
@@ -60,7 +60,7 @@
         <td style="min-width:88px">
           <% unless contact.decision_with.nil? then
                if contact.decision_with.length > 6 %>
-                  <span class="Hinweis" title="<%= contact.decision_with %>"><%= truncate(contact.decision_with, :length => 6) %></span>
+                  <span class="Hinweis" rel="tooltip" title="<%= contact.decision_with %>"><%= truncate(contact.decision_with, :length => 6) %></span>
               <% else %>
                   <%= contact.decision_with %>
               <% end end %>
@@ -74,7 +74,7 @@
         <td style="min-width:88px">
           <% unless contact.comment.nil? then
                if contact.comment.length > 5 %>
-                  <span class="Hinweis" title="<%= contact.comment %>"><%= truncate(contact.comment, :length => 5) %></span>
+                  <span class="Hinweis" rel="tooltip" title="<%= contact.comment %>"><%= truncate(contact.comment, :length => 5) %></span>
               <% else %>
                   <%= contact.comment %>
               <% end end %>

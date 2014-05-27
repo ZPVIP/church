@@ -1,0 +1,81 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1><%= homepage_name %>
+      <small>所有权限</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
+      <li class="active"><i class="fa fa-table"></i> 所有权限</li>
+    </ol>
+  </div>
+</div><!-- /.row -->
+
+
+
+
+
+<div class="row">
+  <div class="col-lg-12">
+
+
+    <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
+      <thead>
+      <tr>
+        <td> # </td>
+        <td> Action </td>
+        <td> Subject </td>
+        <td> Description </td>
+        <td> &nbsp;</td>
+        <td> &nbsp;</td>
+      </tr>
+      </thead>
+      <tbody>
+      <% @permissions.each do |admin_permission| %>
+          <tr>
+            <td>
+              <%= admin_permission.id %>
+            </td>
+            <td>
+              <% unless admin_permission.action.nil? %><%= admin_permission.action %>
+              <% end %>
+            </td>
+            <td style="min-width:73px">
+              <% unless admin_permission.subject.nil? %><%= admin_permission.subject %>
+              <% end %>
+            </td>
+            <td>
+              <% unless admin_permission.description.nil? %><%= admin_permission.description %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to('<i class= "fa fa-eye"></i>'.html_safe, admin_permission_path(admin_permission), :class => "green") %>
+            </td>
+            <td>
+              <%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_admin_permission_path(admin_permission), :class => "blue") %>
+            </td>
+            <td>
+              <%= link_to('<i class= "fa fa-trash-o""></i>'.html_safe, admin_permission_path(admin_permission), method: :delete, data: { confirm: 'Are you sure?' }, :class => "red") %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div><!-- /.row -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+<%= link_to 'New Permission', new_admin_permission_path %>

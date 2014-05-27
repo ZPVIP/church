@@ -7,34 +7,24 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  def login_required
-    if current_user.blank?
-      respond_to do |format|
-        format.html {
-          authenticate_user!
-        }
-        format.js {
-          render :partial => "common/not_logined"
-        }
-        format.all {
-          head(:unauthorized)
-        }
-      end
-    end
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied!"
+    redirect_to :back
   end
 
+  # logger.debug "debug|info|warn|error|fatal"
 
-  def admin_required
-    unless current_user && current_user.admin?
-      redirect_to root_path, :flash => {:error => "您没有访问权限！"}
-    end
+  def my_ip
+    require 'socket'
+    ip=Socket.ip_address_list.detect { |intf| intf.ipv4_private? }
+    ip.ip_address if ip
   end
 
   protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
-    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :name, :email, :password, :remember_me) }
-    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username,:name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :username, :email, :password, :remember_me) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :name,:email, :password, :password_confirmation, :current_password) }
 
   end
 

@@ -15,7 +15,8 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :username, label: '用户名',:required => true, :autofocus => true %>
+          <%= f.input :username, label: '用户名', :required => true, :placeholder => '请使用26个字母和数字组成用户名', :autofocus => true %>
+          <%= f.input :name, label: '真实姓名', :required => true, :placeholder => '请填写真实姓名', :autofocus => true %>
           <%= f.input :email, :required => true, :autofocus => true %>
           <%= f.input :password, label: '密&nbsp;&nbsp;&nbsp;&nbsp;码'.html_safe, :required => true %>
           <%= f.input :password_confirmation, label: '密码确认'.html_safe, :required => true %>

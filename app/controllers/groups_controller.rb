@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :login_required, :admin_required
+
   # GET /groups
   # GET /groups.json
   def index
@@ -30,11 +31,9 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to @group, notice: 'Group was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @group }
+        format.html { redirect_to groups_path, notice: 'Group was successfully created.' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @group.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,10 +44,8 @@ class GroupsController < ApplicationController
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to groups_path, notice: 'Group was successfully updated.' }
-        format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @groups.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,5 +1,5 @@
 class ContactsController < ApplicationController
-  before_action :login_required, :admin_required
+  load_and_authorize_resource
 
   def index
     #@contacts = Contact.all
@@ -7,9 +7,9 @@ class ContactsController < ApplicationController
     @contacts = @q.result.order('id desc').includes(:participated_groups).paginate(:page => params[:page], :per_page => 30)
     respond_to do |format|
       format.json
-      format.html          # /app/views/contacts/index.html.erb
-      format.html.phone    # /app/views/contacts/index.html+phone.erb
-      format.html.pad      # /app/views/contacts/index.html+pad.erb
+      format.html # /app/views/contacts/index.html.erb
+      format.html.phone # /app/views/contacts/index.html+phone.erb
+      format.html.pad # /app/views/contacts/index.html+pad.erb
     end
   end
 
@@ -19,6 +19,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+    @my_ip = my_ip
   end
 
   def create
@@ -46,6 +47,33 @@ class ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :gender, :telephone, :mobile, :email, :wechat, :address, :birthday, :come, :decision, :decision_with, :baptism, :go,:created_at, :comment,  :q => [], :participated_group_ids => [])
+    params.require(:contact).permit(
+        :name,
+        :gender,
+        :telephone,
+        :mobile,
+        :email,
+        :wechat,
+        :address,
+        :birthday,
+        :come,
+        :decision,
+        :decision_with,
+        :baptism,
+        :go,
+        :created_at,
+        :comment,
+        :job,
+        :find_us,
+        :find_us_additional,
+        :friend_id,
+        :pray,
+        :native_place,
+        :authenticated,
+        :register_ip,
+        :q => [],
+        :participated_group_ids => [],
+        :participated_gathering_ids => []
+    )
   end
 end

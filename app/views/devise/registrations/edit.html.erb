@@ -16,16 +16,18 @@
         <%= f.error_notification %>
 
         <div class="form-inputs">
-          <%= f.input :username, :required => true, :autofocus => true %>
+          <%= f.input :username, label: '用户名', readonly:true %>
+          <%= f.input :name, label: '真实姓名', :required => true, :placeholder => '请填写真实姓名', :autofocus => true %>
+
           <%= f.input :email, :required => true, :autofocus => true %>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
 
-          <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-          <%= f.input :password_confirmation, :required => false %>
-          <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+          <%= f.input :password, label: '密码', :autocomplete => "off", :hint => "如果你不想修改密码请留空", :required => false %>
+          <%= f.input :password_confirmation, label: '重复密码', :required => false %>
+          <%= f.input :current_password, label: '当前密码', :hint => "任何改动都需要输入密码", :required => true %>
         </div>
 
         <div class="form-actions">

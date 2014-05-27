@@ -1,14 +1,4 @@
-<div class="row">
-  <div class="col-lg-12">
-    <h1><%= homepage_name %>
-      <small><%= @group.name %></small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
-      <li class="active"><i class="fa fa-table"></i> <%= @group.name %>小组成员</li>
-    </ol>
-  </div>
-</div><!-- /.row -->
+<%= render partial: 'common/header', locals: {sub_title: '用户组：'+ @group.name, breadcrumb: @group.name + '成员', new_path: nil} %>
 
 <div class="row">
   <div class="col-lg-12">
