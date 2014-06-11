@@ -25,21 +25,20 @@
         <td> Action </td>
         <td> Subject </td>
         <td> Description </td>
-        <td> &nbsp;</td>
-        <td> &nbsp;</td>
+        <th colspan="3">&nbsp;</th>
       </tr>
       </thead>
       <tbody>
       <% @permissions.each do |admin_permission| %>
           <tr>
-            <td>
+            <td style="width:30px;min-width:30px;">
               <%= admin_permission.id %>
             </td>
-            <td>
+            <td style="width:80px;min-width:80px;">
               <% unless admin_permission.action.nil? %><%= admin_permission.action %>
               <% end %>
             </td>
-            <td style="min-width:73px">
+            <td style="width:80px;min-width:80px;">
               <% unless admin_permission.subject.nil? %><%= admin_permission.subject %>
               <% end %>
             </td>
@@ -47,14 +46,14 @@
               <% unless admin_permission.description.nil? %><%= admin_permission.description %>
               <% end %>
             </td>
-            <td>
-              <%= link_to('<i class= "fa fa-eye"></i>'.html_safe, admin_permission_path(admin_permission), :class => "green") %>
+            <td style="width:70px;min-width:70px;">
+              <%= link_to('<i class= "fa fa-eye"></i> 查看'.html_safe, admin_permission_path(admin_permission), :class => "green") %>
             </td>
-            <td>
-              <%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_admin_permission_path(admin_permission), :class => "blue") %>
+            <td style="width:70px;min-width:70px;">
+              <%= link_to('<i class= "fa fa-edit"></i> 编辑'.html_safe, edit_admin_permission_path(admin_permission), :class => "blue") %>
             </td>
-            <td>
-              <%= link_to('<i class= "fa fa-trash-o""></i>'.html_safe, admin_permission_path(admin_permission), method: :delete, data: { confirm: 'Are you sure?' }, :class => "red") %>
+            <td style="width:70px;min-width:70px;">
+              <%= link_to('<i class= "fa fa-trash-o""></i> 删除'.html_safe, admin_permission_path(admin_permission), method: :delete, data: { confirm: 'Are you sure?' }, :class => "red") %>
             </td>
           </tr>
       <% end %>

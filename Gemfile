@@ -28,7 +28,7 @@ gem 'devise'
 gem "ransack"
 gem 'will_paginate', '~> 3.0'
 gem 'cancancan', '~> 1.8'
-
+gem "awesome_nested_set", '~> 3.0.0.rc.3'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

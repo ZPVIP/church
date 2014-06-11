@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140527205204) do
+ActiveRecord::Schema.define(version: 20140610211427) do
 
   create_table "contact_gatherings", force: true do |t|
     t.integer  "contact_id"
@@ -87,6 +87,21 @@ ActiveRecord::Schema.define(version: 20140527205204) do
 
   add_index "permissions_users", ["permission_id", "user_id"], name: "index_permissions_users_on_permission_id_and_user_id", using: :btree
   add_index "permissions_users", ["user_id", "permission_id"], name: "index_permissions_users_on_user_id_and_permission_id", using: :btree
+
+  create_table "services", force: true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["depth"], name: "index_services_on_depth", using: :btree
+  add_index "services", ["lft"], name: "index_services_on_lft", using: :btree
+  add_index "services", ["parent_id"], name: "index_services_on_parent_id", using: :btree
+  add_index "services", ["rgt"], name: "index_services_on_rgt", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

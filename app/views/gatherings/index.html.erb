@@ -15,13 +15,13 @@
       <tbody>
       <% @gatherings.each do |gathering| %>
           <tr>
-            <td> <%= gathering.id %></td>
-            <td> <%= link_to gathering.gathering, gathering_path(gathering) %></td>
-            <td> <span title="<%=gathering.description  %>"><%= truncate(gathering.description, :length => 20) %></span> </td>
-            <td>
+            <td style="width:30px;min-width:30px;"> <%= gathering.id %></td>
+            <td style="width:250px;min-width:250px;"> <%= link_to gathering.gathering, gathering_path(gathering) %></td>
+            <td style="min-width:30px;"> <span title="<%=gathering.description  %>"><%= truncate(gathering.description, :length => 20) %></span> </td>
+            <td style="width:70px;min-width:70px;">
               <%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, edit_gathering_path(gathering)) %>
             </td>
-            <td>
+            <td style="width:70px;min-width:70px;">
               <%= link_to('<i class="fa fa-trash-o"></i> 删除'.html_safe, gathering_path(gathering), :class => "red", :method => :delete, data: { confirm: '你确定吗？' }) %>
             </td>
           </tr>

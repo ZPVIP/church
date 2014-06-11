@@ -1,0 +1,33 @@
+<%= render partial: 'common/header', locals: {sub_title: '服事定义', breadcrumb: '列表', new_path: new_service_path} %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
+      <thead>
+      <tr>
+        <td> #</td>
+        <td>父ID</td>
+        <td>左ID</td>
+        <td>右ID</td>
+        <td>深度</td>
+        <td>项目</td>
+        <th colspan="2">&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @services.each do |service| %>
+          <tr>
+            <td style="width:30px;min-width:30px;"> <%= service.id %></td>
+            <td style="width:45px;min-width:45px;"><%= service.parent_id %></td>
+            <td style="width:45px;min-width:45px;"><%= service.lft %></td>
+            <td style="width:45px;min-width:45px;"><%= service.rgt %></td>
+            <td style="width:45px;min-width:45px;"><%= service.depth %></td>
+            <td style="min-width:120px;"><%= link_to ((service.level==1?'<span class="red">':'') + "#{'⇢' * service.level} #{service.name}" + (service.level==1?'</span>':'')).html_safe, service %></td>
+            <td style="width:70px;min-width:70px;"><%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, edit_service_path(service), :class => "blue") %></td>
+            <td style="width:70px;min-width:70px;"><%= link_to('<i class="fa fa-trash-o"></i> 删除'.html_safe, service, :class => "red", :method => :delete, data: {confirm: '你确定吗？'}) %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /.row -->

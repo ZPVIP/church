@@ -1,5 +1,7 @@
 Caachen::Application.routes.draw do
 
+  resources :services
+
   resources :gatherings
 
   devise_for :users
