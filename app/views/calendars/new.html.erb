@@ -1,0 +1,15 @@
+<%= render partial: 'common/header', locals: {sub_title: '服事安排', breadcrumb: '添加', new_path: nil} %>
+
+<div class="row">
+  <div class="col-lg-12">
+
+    <%= simple_form_for(@calendar) do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :datum, label: '日期'%>
+        <div class="form-actions col-lg-2 col-md-3 col-sm-3 col-xs-3 lft-btn">
+          <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary" %>
+        </div>
+    <% end %>
+
+  </div>
+</div><!-- /.row -->

@@ -49,6 +49,7 @@
       <% if can? :manage, User %><li><%= link_to('<i class="fa fa-users"></i> 用户管理'.html_safe, admin_users_path ) %></li><% end %>
       <% if can? :manage, Permission %><li><%= link_to('<i class="fa fa-users"></i> 权限管理'.html_safe, admin_permissions_path ) %></li><% end %>
       <li><%= link_to('<i class="fa fa-users"></i> 服事定义'.html_safe, services_path ) %></li>
+      <li><%= link_to('<i class="fa fa-users"></i> 服事安排'.html_safe, calendars_path ) %></li>
     </ul>
 
     <ul class="nav navbar-nav navbar-right navbar-user">

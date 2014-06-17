@@ -9,6 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require tree
+ *= require sortable_tree
+ *= require nested_options
  *= require_tree .
  */
 
@@ -181,11 +184,11 @@ table.tablesorter thead tr th:hover {
     color: red;
 }
 
-.blue {
+.blue, .update_name {
     color: blue;
 }
 
-.green {
+.green, .add_name {
     color: green;
 }
 
@@ -199,9 +202,14 @@ a:hover {
 }
 
 .form-actions {
+    clear: both;
+    float: left;
     text-align: right;
-    width: 16.6667%;
-    padding-right: 30px;
+    padding-right: 8px;
+}
+
+.rgt-btn {
+    float: right;
 }
 
 .Hinweis {
@@ -219,7 +227,7 @@ a:hover {
 }
 
 #tooltip:after /* triangle decoration */
-     {
+      {
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
@@ -298,4 +306,39 @@ a:hover {
 
 .flickr_pagination .next_page {
     margin-left: 1em;
+}
+
+#friend_birthday_1i, #contact_birthday_1i, #calendar_datum_1i, #q_datum_eq_1i {
+    width: 80px;
+    display: inline;
+}
+
+#friend_birthday_2i, #contact_birthday_2i, #calendar_datum_2i, #q_datum_eq_2i {
+    width: 120px;
+    display: inline;
+}
+
+#friend_birthday_3i, #contact_birthday_3i, #calendar_datum_3i, #q_datum_eq_3i {
+    width: 80px;
+    display: inline;
+}
+
+.hide_me {
+    height: 1px;
+    left: -1000em;
+    position: absolute;
+    top: -1000em;
+    width: 1px;
+}
+
+.odd {
+    background-color: #f2f2f2;
+}
+
+.even {
+    background-color: #fff;
+}
+
+.lft-btn {
+    padding-right: 27px;
 }

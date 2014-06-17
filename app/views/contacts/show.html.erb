@@ -6,6 +6,8 @@
   <% else %>
       <span class="blue"> <%= @contact.name %></span>
   <% end %>
+
+  <small><%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_contact_path(@contact), :class => "blue") %></small>
 </h2>
 
 
@@ -27,7 +29,7 @@
       </tr>
       <tr>
         <td><i class="fa fa-calendar"></i></td>
-        <td><span class="Hinweis" title="第一次来团契">首访</span></td>
+        <td><span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span></td>
         <td> <%= @contact.come %> </td>
       </tr>
       <tr>
@@ -37,7 +39,7 @@
       </tr>
       <tr>
         <td><i class="fa fa-user"></i></td>
-        <td><span class="Hinweis" title="谁带领决志祷告">带领</span></td>
+        <td><span class="Hinweis" rel="tooltip" title="谁带领决志祷告">带领</span></td>
         <td> <%= @contact.decision_with %> </td>
       </tr>
       <tr>
@@ -47,7 +49,7 @@
       </tr>
       <tr>
         <td><i class="fa fa-calendar"></i></td>
-        <td><span class="Hinweis" title="离开Aachen">离开</span></td>
+        <td><span class="Hinweis" rel="tooltip" title="离开Aachen">离开</span></td>
         <td> <%= @contact.go %> </td>
       </tr>
       <tr>
@@ -58,17 +60,17 @@
       </tr>
       <tr>
         <td><i class="fa fa-globe"></i></td>
-        <td><span class="Hinweis" title="添加联系人设备的 IP 地址">IP</span></td>
+        <td><span class="Hinweis" rel="tooltip" title="添加联系人设备的 IP 地址">IP</span></td>
         <td> <%= @contact.register_ip %> </td>
       </tr>
       <tr>
         <td><i class="fa fa-calendar"></i></td>
-        <td><span class="Hinweis" title="信息创建时间">创建</span></td>
+        <td><span class="Hinweis" rel="tooltip" title="信息创建时间">创建</span></td>
         <td> <%= @contact.created_at %> </td>
       </tr>
       <tr>
         <td><i class="fa fa-calendar"></i></td>
-        <td><span class="Hinweis" title="信息更新时间">更新</span></td>
+        <td><span class="Hinweis" rel="tooltip" title="信息更新时间">更新</span></td>
         <td> <%= @contact.updated_at %> </td>
       </tr>
 

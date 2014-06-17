@@ -1,10 +1,12 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
+  include TheSortableTreeController::Rebuild
 
   # GET /services
   # GET /services.json
   def index
-    @services = Service.all.order('lft')
+    #@services = Service.all.order('lft')
+    @services = Service.nested_set.all
   end
 
   # GET /services/1
@@ -69,6 +71,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :parent_id, :lft, :rgt, :depth)
+      params.require(:service).permit(:title, :parent_id, :lft, :rgt, :depth)
     end
 end

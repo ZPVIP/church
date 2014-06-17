@@ -12,11 +12,36 @@
 //
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery.ui.nestedSortable
+//= require sortable_tree/initializer
 //= require_tree .
 
 $( function(){
     $("table").tablesorter({debug: true});
 
+    //绑定添加链接的click事件
+    $('.add_name').click(function() {
+        _remove_add_form();
+        //给表格添加一行
+        $('#tr_' + $(this).attr('parent_id')).after( "<tr class='tr_add_name'><td colspan='4'>" + "</td></tr>" );
+        $('#new_calendar').appendTo('.tr_add_name td');
+        //预填写表单
+        $("#form_datum").val($(this).attr("datum"));
+        $("#form_parent_id").val($(this).attr("parent_id"));
+        return false;
+    });
+
+    //绑定编辑链接的click事件
+    $('.update_name').click(function() {
+        _remove_add_form();
+        //给表格添加一行
+        $('#tr_' + $(this).attr('id')).after( "<tr class='tr_update_name'><td colspan='4'>" + "</td></tr>" );
+        $('#update_calendar').appendTo('.tr_update_name td');
+        //预填写表单
+        $("#form_id").val($(this).attr("id"));
+        $("#form_name").val($(this).attr("name"));
+        return false;
+    });
     var targets = $( '[rel~=tooltip]' ),
         target  = false,
         tooltip = false,
@@ -90,5 +115,12 @@ $( function(){
         target.bind( 'mouseleave', remove_tooltip );
         tooltip.bind( 'click', remove_tooltip );
     });
-
 });
+
+// 删除已存在的修改表单
+function _remove_add_form() {
+    $('#new_calendar'   ).appendTo('#form_add_name_box');
+    $('#update_calendar').appendTo('#form_add_name_box');
+    $("#services_table .tr_add_name"   ).remove();
+    $("#services_table .tr_update_name").remove();
+}

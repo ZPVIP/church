@@ -7,11 +7,6 @@ class GatheringsController < ApplicationController
     @gatherings = Gathering.all
   end
 
-  # GET /gatherings/1
-  # GET /gatherings/1.json
-  def show
-  end
-
   # GET /gatherings/new
   def new
     @gathering = Gathering.new

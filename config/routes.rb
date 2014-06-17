@@ -1,6 +1,10 @@
 Caachen::Application.routes.draw do
 
-  resources :services
+  resources :services do
+    collection do
+      post :rebuild # required for Sortable GUI server side actions
+    end
+  end
 
   resources :gatherings
 
@@ -20,6 +24,14 @@ Caachen::Application.routes.draw do
     end
   end
 
+  resources :calendars do
+    collection do
+      match 'edit/:datum' => 'calendars#services_edit', via: [:get], as: 'services_edit'
+      match 'services_delete/:datum' => 'calendars#services_delete', via: [:delete], as: 'services_delete'
+      match 'add_name' => 'calendars#add_name', via: [:post], as: 'add_name'
+      match 'update_name' => 'calendars#update_name', via: [:post], as: 'update_name'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

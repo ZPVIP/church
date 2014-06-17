@@ -8,10 +8,6 @@ class Admin::PermissionsController < ApplicationController
     @permissions = Permission.all
   end
 
-  # GET /admin/permissions/1
-  def show
-  end
-
   # GET /admin/permissions/new
   def new
     @permission = Permission.new

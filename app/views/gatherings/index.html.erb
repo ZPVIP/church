@@ -16,7 +16,7 @@
       <% @gatherings.each do |gathering| %>
           <tr>
             <td style="width:30px;min-width:30px;"> <%= gathering.id %></td>
-            <td style="width:250px;min-width:250px;"> <%= link_to gathering.gathering, gathering_path(gathering) %></td>
+            <td style="width:250px;min-width:250px;"> <%= gathering.gathering%></td>
             <td style="min-width:30px;"> <span title="<%=gathering.description  %>"><%= truncate(gathering.description, :length => 20) %></span> </td>
             <td style="width:70px;min-width:70px;">
               <%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, edit_gathering_path(gathering)) %>

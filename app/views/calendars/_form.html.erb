@@ -1,0 +1,9 @@
+<%= simple_form_for(@calendar) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :datum, label: '日期'%>
+    <%= f.input :name, label: '项目'%>
+    <%= f.input :parent_id, :collection => nested_set_options(@calendar.root, @calendar) {|i| "#{'⇢' * i.level} #{i.name}" }, label: '父目录'%>
+    <div class="form-actions col-lg-9 col-md-10 col-sm-12 col-xs-12">
+      <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary rgt-btn" %>
+    </div>
+<% end %>

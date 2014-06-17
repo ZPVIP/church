@@ -1,8 +1,8 @@
 <%= simple_form_for(@service) do |f| %>
   <%= f.error_notification %>
-  <%= f.input :name, label: '项目'%>
-  <%= f.input :parent_id, :collection => nested_set_options(Service, @service) {|i| ((i.level==1?'<div class="red">':'') + "#{'⇢' * i.level} #{i.name}" + (i.level==1?'</div>':'')).html_safe }, label: '父目录'%>
-  <div class="form-actions">
-    <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary" %>
+  <%= f.input :title, label: '项目'%>
+  <%= f.input :parent_id, :collection => nested_set_options(Service, @service) {|i| ((i.level==1?'<div class="red">':'') + "#{'⇢' * i.level} #{i.title}" + (i.level==1?'</div>':'')).html_safe }, label: '父目录'%>
+    <div class="form-actions col-lg-9 col-md-10 col-sm-12 col-xs-12">
+    <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary rgt-btn" %>
   </div>
 <% end %>

@@ -1,29 +1,6 @@
-<%= render partial: 'common/header', locals: {sub_title: '服事定义', breadcrumb: @service.name, new_path: nil} %>
+<%= render partial: 'common/header', locals: {sub_title: '服事定义', breadcrumb: @service.title, new_path: nil} %>
 
 <p>
   <strong>Name:</strong>
-  <%= @service.name %>
+  <%= @service.title %>
 </p>
-
-<p>
-  <strong>Parent:</strong>
-  <%= @service.parent_id %>
-</p>
-
-<p>
-  <strong>Lft:</strong>
-  <%= @service.lft %>
-</p>
-
-<p>
-  <strong>Rgt:</strong>
-  <%= @service.rgt %>
-</p>
-
-<p>
-  <strong>Depth:</strong>
-  <%= @service.depth %>
-</p>
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>

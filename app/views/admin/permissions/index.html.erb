@@ -1,17 +1,4 @@
-<div class="row">
-  <div class="col-lg-12">
-    <h1><%= homepage_name %>
-      <small>所有权限</small>
-    </h1>
-    <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
-      <li class="active"><i class="fa fa-table"></i> 所有权限</li>
-    </ol>
-  </div>
-</div><!-- /.row -->
-
-
-
+<%= render partial: 'common/header', locals: {sub_title: '权限', breadcrumb: '所有权限', new_path: new_admin_permission_path} %>
 
 
 <div class="row">
@@ -25,7 +12,7 @@
         <td> Action </td>
         <td> Subject </td>
         <td> Description </td>
-        <th colspan="3">&nbsp;</th>
+        <th colspan="2">&nbsp;</th>
       </tr>
       </thead>
       <tbody>
@@ -47,9 +34,6 @@
               <% end %>
             </td>
             <td style="width:70px;min-width:70px;">
-              <%= link_to('<i class= "fa fa-eye"></i> 查看'.html_safe, admin_permission_path(admin_permission), :class => "green") %>
-            </td>
-            <td style="width:70px;min-width:70px;">
               <%= link_to('<i class= "fa fa-edit"></i> 编辑'.html_safe, edit_admin_permission_path(admin_permission), :class => "blue") %>
             </td>
             <td style="width:70px;min-width:70px;">
@@ -62,19 +46,3 @@
 
   </div>
 </div><!-- /.row -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br>
-
-<%= link_to 'New Permission', new_admin_permission_path %>
