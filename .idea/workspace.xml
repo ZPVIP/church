@@ -62,7 +62,16 @@
       <file leaf-file-name="seeds.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/seeds.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="26" selection-start="667" selection-end="667" vertical-scroll-proportion="0.39" vertical-offset="90" max-vertical-offset="870">
+            <state line="26" column="32" selection-start="903" selection-end="903" vertical-scroll-proportion="0.8176101" vertical-offset="0" max-vertical-offset="480">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendars_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="23" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.0" vertical-offset="976" max-vertical-offset="1815">
               <folding />
             </state>
           </provider>
@@ -1026,13 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="23" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="1815">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/contacts_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="26" column="4" selection-start="766" selection-end="825" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="1560">
@@ -1110,9 +1112,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="23" selection-start="2140" selection-end="2140" vertical-scroll-proportion="0.0" vertical-offset="976" max-vertical-offset="1815">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="26" selection-start="667" selection-end="667" vertical-scroll-proportion="0.39" vertical-offset="90" max-vertical-offset="870">
+        <state line="26" column="32" selection-start="903" selection-end="903" vertical-scroll-proportion="0.8176101" vertical-offset="0" max-vertical-offset="480">
           <folding />
         </state>
       </provider>
