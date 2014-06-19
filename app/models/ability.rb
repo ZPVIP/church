@@ -1,6 +1,5 @@
 class Ability
   include CanCan::Ability
-  require 'PP'
 
   def initialize(user)
 
