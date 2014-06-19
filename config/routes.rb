@@ -20,7 +20,7 @@ Caachen::Application.routes.draw do
   root :to => 'pages#welcome'
   resources :contacts do
     collection do
-      #match 'suchen' => 'contacts#suchen', via: [:get, :post], as: :suchen
+      match 'update_month' => 'contacts#update_month', via: [:get], as: :update_month
     end
   end
 

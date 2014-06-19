@@ -2,25 +2,19 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <ol class="breadcrumb">
-      <li class="active"><i class="fa fa-table"></i> 查找联系人</li>
-    </ol>
-  </div>
-</div><!-- /.row -->
-
-<div class="row">
-  <div class="col-lg-12">
-    <%= search_form_for @q, :builder => SimpleForm::FormBuilder, url: contacts_path, html: {method: :get, class: 'simple_form form-horizontal'} do |f| %><!--:builder => SimpleForm::FormBuilder, -->
-
+    <div class="gray-background">
+    <%= search_form_for @q, :builder => SimpleForm::FormBuilder, url: contacts_path, html: {method: :get, class: 'simple_form form-horizontal'} do |f| %>
         <%= f.input :name_cont, label: '姓名含有', :required => false %>
         <%= f.input :mobile_cont, label: '手机含有', :required => false %>
-        <%= f.input :email_cont, label: 'Email 含有', :required => false %>
+        <%= f.input :birth_month_eq, collection: 1..12, label: '生日月分', :required => false %>
+        <%= f.input :email_cont, label: 'Email 含有', input_html: { type: 'text' }, :required => false %>
         <%= f.input :participated_groups_id_eq, :collection => Group.all.map { |g| [g.name, g.id] }, input_html: {class: 'special'}, include_blank: true, label: '属于小组', :required => false %>
         <div class="form-actions col-lg-2 col-md-3 col-sm-3 col-xs-3 lft-btn">
           <%= f.submit "查找", data: {disable_with: '正在努力查找中...'}, :class => "btn btn-primary" %>
         </div>
     <% end %>
-
+    <div style="clear:both;"></div>
+    </div>
   </div>
 </div><!-- /.row -->
 

@@ -16,3 +16,4 @@ user.password_confirmation = 'aaaaaaaa'
 user.name = 'Peter'
 user.blocked = false
 user.save!
+

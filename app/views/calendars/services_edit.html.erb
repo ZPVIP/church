@@ -1,4 +1,4 @@
-<%= render partial: 'common/header', locals: {sub_title: '服事安排', breadcrumb: '编辑', new_path: nil} %>
+<%= render partial: 'common/header', locals: {sub_title: '服事值日表', breadcrumb: '编辑', new_path: nil} %>
 
 <div class="row">
   <div class="col-lg-12">
@@ -7,10 +7,6 @@
       <tr>
         <th>ID</th>
         <th>&nbsp;</th>
-        <!--td>父ID</td-->
-        <!--td>左ID</td-->
-        <!--td>右ID</td-->
-        <!--td>深度</td-->
         <th>项目</th>
         <th>删</th>
       </tr>
@@ -23,10 +19,6 @@
               <%= if    calendar.level==1 && (calendar.leaf?);link_to('<i class="fa fa-user"></i> 添加'.html_safe, '#', class: "add_name", parent_id: calendar.id,  datum: calendar.datum);
                   elsif calendar.level==2;link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, '#', :class => 'update_name', id:calendar.id, name: calendar.name);end%>
             </td>
-            <!--td style="width:45px;min-width:45px;"><%= calendar.parent_id %></td-->
-            <!--td style="width:45px;min-width:45px;"><%= calendar.lft %></td-->
-            <!--td style="width:45px;min-width:45px;"><%= calendar.rgt %></td-->
-            <!--td style="width:45px;min-width:45px;"><%= calendar.depth %></td-->
             <td style="min-width:120px;"><%=
                 if calendar.level==0
                   ('<span class="red">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe

@@ -1,13 +1,16 @@
-<%= render partial: 'common/header', locals: {sub_title: '服事安排', breadcrumb: '日历', new_path: new_calendar_path} %>
+<%= render partial: 'common/header', locals: {sub_title: '服事值日表', breadcrumb: '日历', new_path: new_calendar_path} %>
 
-<div class="row">
+<div class="row ">
   <div class="col-lg-12">
-    <%= search_form_for @q, :builder => SimpleForm::FormBuilder, url: calendars_path, html: {method: :get, class: 'simple_form form-horizontal'} do |f| %>
-        <%= f.input :datum_eq, :required => false, label: '按日期查找', as: :date, start_year: Time.now.year, end_year: Time.now.year + 3, order: [:year, :month, :day]  %>
+    <div class="gray-background">
+    <%= search_form_for @q, builder: SimpleForm::FormBuilder, url: calendars_path, html: {method: :get, class: 'simple_form form-horizontal'} do |f| %>
+        <%= f.input :datum_eq, :required => false, label: '按日期查找', as: :date, start_year: Time.now.year-3, end_year: Time.now.year + 3, order: [:year, :month, :day]  %>
         <div class="form-actions col-lg-2 col-md-3 col-sm-3 col-xs-3 lft-btn">
           <%= f.submit "查找", data: {disable_with: '正在努力查找中...'}, :class => "btn btn-primary" %>
         </div>
+        <div style="clear:both;"></div>
     <% end %>
+    </div>
   </div>
 </div><!-- /.row -->
 <div>&nbsp;</div>
@@ -16,7 +19,15 @@
     <div class="flickr_pagination">
       <%= will_paginate @contacts, :container => false %>
     </div>
-    <div>&nbsp;</div>
+
+    <div>
+      <p>
+        点击上方的“<span class="green">添加</span>”按钮可以为选定日期添加所有小组的服事值日表。
+        点击右侧的任何一个“<span class="red">删除</span>”按钮会将当天所有的小组的服事值日表全部删除。
+        因为没办法单独删除某个小组的服事安排，所以在删除前请跟其他小组负责人商量好，以便重新输入服事安排。
+      </p>
+    </div>
+
     <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
       <thead>
       <tr>
@@ -25,7 +36,7 @@
         <!--td>左ID</td-->
         <!--td>右ID</td-->
         <!--td>深度</td-->
-        <td>日期</td>
+        <td style="min-width:92px">日期</td>
         <td>项目</td>
         <th>&nbsp;</th>
       </tr>
@@ -41,7 +52,7 @@
             <td style="width:45px;min-width:45px;"><%= link_to(calendar.datum.to_s,  services_edit_calendars_path(calendar.datum.to_s,anchor: "tr_" + (calendar.id-2).to_s))%></td>
             <td style="min-width:120px;"><%= "#{'⇢' * calendar.level} #{calendar.name}".html_safe %></td>
             <!--td style="width:70px;min-width:70px;"><%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe,  services_edit_calendars_path(calendar.datum.to_s), :class => "blue")%></td-->
-            <td style="width:30px;min-width:30px;"><%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, services_delete_calendars_path(calendar.datum.to_s), :class => "red", :method => :delete, data: {confirm: '你确定删除这天所有的事奉安排吗？'}) %></td>
+            <td style="width:30px;min-width:30px;"><%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, services_delete_calendars_path(calendar.datum.to_s), :class => "red", :method => :delete, data: {confirm: '你确定要删除这天"所有小组"的服事安排吗？'}) %></td>
           </tr>
       <% end %>
       </tbody>

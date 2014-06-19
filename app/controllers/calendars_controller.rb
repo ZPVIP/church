@@ -1,8 +1,8 @@
 class CalendarsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_calendar, only: [:show, :edit, :update, :destroy]
 
   # GET /calendars
-  # GET /calendars.json
   def index
     #@calendars = Calendar.all
     @q = Calendar.search(params[:q])
@@ -14,8 +14,10 @@ class CalendarsController < ApplicationController
         tmp_name += '<span class="green">' + ch.name + ':</span> ';
         if not ch.leaf?
           ch.children.each{|chi|
-            tmp_name += '<span class="blue">' + chi.name + '</span> ';
+            tmp_name += chi.name.blank? ? ('<span class="fuchsia">待定</span> '):('<span class="blue">' + chi.name + '</span> ');
           }
+        else
+          tmp_name += '<span class="fuchsia">待定</span> ';
         end
       }
       c.name = tmp_name
@@ -23,9 +25,7 @@ class CalendarsController < ApplicationController
   end
 
   # GET /calendars/1
-  # GET /calendars/1.json
   def show
-
   end
 
   # GET /calendars/new
@@ -35,51 +35,9 @@ class CalendarsController < ApplicationController
 
   # GET /calendars/1/edit
   def edit
-
   end
 
-  def services_edit
-    @calendars = Calendar.where(datum: params[:datum]).order('lft')
-    @calendar = Calendar.new
-  end
-
-  def services_delete
-    @calendars = Calendar.where(datum: params[:datum])
-    @calendars.each{|c|
-      c.destroy if c.root?
-    }
-    respond_to do |format|
-      format.html { redirect_to calendars_url }
-    end
-  end
-
-  def add_name
-    @calendar = Calendar.new(calendar_params)
-
-    respond_to do |format|
-      if @calendar.save
-        format.html { redirect_to services_edit_calendars_path(@calendar.datum.to_s), notice: '添加成功！' }
-        format.json { render action: 'show', status: :created, location: @calendar }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @calendar.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update_name
-    @calendar = Calendar.find(params[:calendar][:id])
-    respond_to do |format|
-      if @calendar.update(calendar_params)
-        format.html { redirect_to services_edit_calendars_path(@calendar.datum.to_s), notice: '更新成功！' }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to services_edit_calendars_path(@calendar.datum.to_s), notice: '更新失败！' }
-      end
-    end
-  end
   # POST /calendars
-  # POST /calendars.json
   def create
     saved = true
     @services = Service.order("lft ASC").roots
@@ -105,41 +63,43 @@ class CalendarsController < ApplicationController
         }
       end
     }
-
-    respond_to do |format|
-      if saved
-        format.html { redirect_to calendars_path, notice: 'Calendar was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @calendar }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @calendar.errors, status: :unprocessable_entity }
-      end
-    end
+    saved ? (redirect_to calendars_path, notice: '值日表添加成功。') : (render 'new')
   end
 
   # PATCH/PUT /calendars/1
-  # PATCH/PUT /calendars/1.json
   def update
-    respond_to do |format|
-      if @calendar.update(calendar_params)
-        format.html { redirect_to calendars_path, notice: 'Calendar was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @calendar.errors, status: :unprocessable_entity }
-      end
-    end
+    @calendar.update(calendar_params) ? (redirect_to calendars_path, notice: '值日表更新成功。.') : (render 'edit')
   end
 
   # DELETE /calendars/1
-  # DELETE /calendars/1.json
   def destroy
     datum = @calendar.datum
     @calendar.destroy
-    respond_to do |format|
-      format.html { redirect_to services_edit_calendars_path(datum.to_s) }
-      format.json { head :no_content }
-    end
+    redirect_to services_edit_calendars_path(datum.to_s)
+  end
+
+
+  def services_edit
+    @calendars = Calendar.where(datum: params[:datum]).order('lft')
+    @calendar = Calendar.new
+  end
+
+  def services_delete
+    @calendars = Calendar.where(datum: params[:datum])
+    @calendars.each{|c|
+      c.destroy if c.root?
+    }
+    redirect_to calendars_url
+  end
+
+  def add_name
+    @calendar = Calendar.new(calendar_params)
+    @calendar.save ? (redirect_to services_edit_calendars_path(@calendar.datum.to_s), notice: '添加成功！') : (render 'new')
+  end
+
+  def update_name
+    @calendar = Calendar.find(params[:calendar][:id])
+    @calendar.update(calendar_params) ? (redirect_to services_edit_calendars_path(@calendar.datum.to_s), notice: '更新成功！') : (redirect_to services_edit_calendars_path(@calendar.datum.to_s), notice: '更新失败！')
   end
 
   private

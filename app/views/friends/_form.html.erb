@@ -1,5 +1,5 @@
 <%= simple_form_for @friend do |f| %>
-    <%= f.input :name, label: '姓名' %>
+    <%= f.input :name, :required => true, label: '姓名' %>
     <%= f.input :gender, as: :radio_buttons, collection: [['男', 1], ['女', 0]], label: '性别' %>
     <%= f.input :job, label: '<span class="Hinweis" rel="tooltip" title="现在的状况">职业</span>'.html_safe, placeholder: '在校学生，工作人士，正找工作等' %>
     <%= f.input :birthday, label: '生日'.html_safe, as: :date, start_year: Time.now.year - 70, end_year: Time.now.year - 8, order: [:year, :month, :day], default: { year: 1990, month: 1, day: 1 } %>
@@ -9,8 +9,8 @@
     <%= f.input :find_us, label: '<span class="Hinweis" rel="tooltip" title="您是如何知道我们的？">HOW?</span>'.html_safe, as: :radio_buttons, collection: [["搜索引擎",0], ["网站或论坛",1], ["活动宣传",2], ["团契朋友介绍",3], ["其它",4]], :item_wrapper_class => 'inline' %>
     <%= f.input :find_us_additional, label: '<span class="Hinweis" rel="tooltip" title="对上列的补充">补充</span>'.html_safe, placeholder: '网站名称，朋友姓名或其他途径等' %>
     <%= f.association :participated_gatherings, label_method: :gathering, value_method: :id, label: '<span class="Hinweis" rel="tooltip" title="您愿意参加的聚会">聚会</span>'.html_safe, as: :check_boxes, :include_blank => false %>
-    <%= f.input :come, label: '<span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span>'.html_safe, :as => :string, placeholder: '格式:YYYY-MM-DD 年-月-日' %>
     <%= f.input :wechat, label: '微信', placeholder: '微信号' %>
+    <%= f.input :come, label: '<span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span>'.html_safe, as: :date, start_year: Time.now.year - 8, end_year: Time.now.year, order: [:year, :month, :day], default: Time.now %>
     <%= f.input :pray, label: '<span class="Hinweis" rel="tooltip" title="希望我们代祷的事项">代祷</span>'.html_safe %>
     <%= f.hidden_field  :register_ip, value: @my_ip %>
     <div class="form-actions col-lg-9 col-md-10 col-sm-12 col-xs-12">

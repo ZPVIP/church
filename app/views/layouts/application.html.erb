@@ -42,14 +42,15 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav side-nav">
       <li><%= link_to('<i class="fa fa-user"></i> 欢迎'.html_safe, root_path ) %></li>
-      <li><%= link_to('<i class="fa fa-user"></i> 欢迎新朋友'.html_safe, new_friend_path ) %></li>
+      <% if can? :read, Calendar %><li><%= link_to('<i class="fa fa-users"></i> 服事值日表'.html_safe, calendars_path ) %></li><% end %>
+      <% if can? :create, Friend %><li><%= link_to('<i class="fa fa-user"></i> 欢迎新朋友'.html_safe, new_friend_path ) %></li><% end %>
       <% if can? :read, Contact %><li><%= link_to('<i class="fa fa-user"></i> 联系人列表'.html_safe, contacts_path ) %></li><% end %>
       <% if can? :manage, Group %><li><%= link_to('<i class="fa fa-users"></i> 小组列表'.html_safe, groups_path ) %></li><% end %>
-      <% if can? :manage, Group %><li><%= link_to('<i class="fa fa-users"></i> 聚会列表'.html_safe, gatherings_path ) %></li><% end %>
       <% if can? :manage, User %><li><%= link_to('<i class="fa fa-users"></i> 用户管理'.html_safe, admin_users_path ) %></li><% end %>
       <% if can? :manage, Permission %><li><%= link_to('<i class="fa fa-users"></i> 权限管理'.html_safe, admin_permissions_path ) %></li><% end %>
-      <li><%= link_to('<i class="fa fa-users"></i> 服事定义'.html_safe, services_path ) %></li>
-      <li><%= link_to('<i class="fa fa-users"></i> 服事安排'.html_safe, calendars_path ) %></li>
+      <% if can? :manage, Service %><li><%= link_to('<i class="fa fa-users"></i> 服事定义'.html_safe, services_path ) %></li><% end %>
+      <% if can? :manage, Gathering %><li><%= link_to('<i class="fa fa-users"></i> 聚会列表'.html_safe, gatherings_path ) %></li><% end %>
+
     </ul>
 
     <ul class="nav navbar-nav navbar-right navbar-user">

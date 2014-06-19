@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Access denied!"
-    redirect_to :back
+    flash[:error] = "你没有权限! 请联系管理员。"
+    redirect_to request.env['HTTP_REFERER'] || root_path
   end
 
   # logger.debug "debug|info|warn|error|fatal"

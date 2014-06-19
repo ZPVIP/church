@@ -1,8 +1,8 @@
 class GatheringsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_gathering, only: [:show, :edit, :update, :destroy]
 
   # GET /gatherings
-  # GET /gatherings.json
   def index
     @gatherings = Gathering.all
   end
@@ -17,38 +17,20 @@ class GatheringsController < ApplicationController
   end
 
   # POST /gatherings
-  # POST /gatherings.json
   def create
     @gathering = Gathering.new(gathering_params)
-
-    respond_to do |format|
-      if @gathering.save
-        format.html { redirect_to gatherings_path, notice: 'Gathering was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
+    @gathering.save ? (redirect_to gatherings_path, notice: '聚会信息已被保存.'):(render 'new')
   end
 
   # PATCH/PUT /gatherings/1
-  # PATCH/PUT /gatherings/1.json
   def update
-    respond_to do |format|
-      if @gathering.update(gathering_params)
-        format.html { redirect_to gatherings_path, notice: 'Gathering was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
+    @gathering.update(gathering_params)? (redirect_to gatherings_path, notice: '聚会信息顺利更新。') : (render 'edit')
   end
 
   # DELETE /gatherings/1
-  # DELETE /gatherings/1.json
   def destroy
     @gathering.destroy
-    respond_to do |format|
-      format.html { redirect_to gatherings_url }
-    end
+    redirect_to gatherings_url
   end
 
   private
