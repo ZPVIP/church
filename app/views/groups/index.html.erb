@@ -17,7 +17,7 @@
           <tr>
             <td style="width:30px;min-width:30px;"> <%= group.id %></td>
             <td style="width:120px;min-width:120px;"> <%= link_to group.name, group_path(group) %></td>
-            <td style="min-width:50px;"> <span title="<%=group.description  %>"><%= truncate(group.description, :length => 20) %></span> </td>
+            <td style="min-width:50px;"> <%=group.description%> </td>
             <td style="width:70px;min-width:70px;">
               <%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, edit_group_path(group)) %>
             </td>

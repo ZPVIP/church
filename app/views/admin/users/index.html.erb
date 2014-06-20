@@ -7,21 +7,26 @@
     <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
       <thead>
       <tr>
-        <td> 用户名</td>
-        <td> 真名</td>
-        <td> Email</td>
-        <td> <span class="Hinweis" title="登录次数">次数</span></td>
-        <td> 注册日期</td>
-        <td> 最近登录</td>
-        <td> 最近 IP</td>
-        <td> 上次登录</td>
-        <td> 上次 IP</td>
-        <td> &nbsp;</td>
+        <td style="width:40px;min-width:40px;">ID</td>
+        <td style="min-width:60px;"> 用户名</td>
+        <td style="min-width:60px;"> 真名</td>
+        <td style="min-width:60px;"> Email</td>
+        <td style="width:50px;min-width:50px;"> <span class="Hinweis" title="登录次数">次数</span></td>
+        <td style="width:90px;min-width:90px;"> 注册日期</td>
+        <td style="width:90px;min-width:90px;"> 最近登录</td>
+        <td style="width:123px;min-width:123px;"> 最近 IP</td>
+        <td style="width:90px;min-width:90px;"> 上次登录</td>
+        <td style="width:123px;min-width:123px;"> 上次 IP</td>
+        <td style="width:30px;min-width:30px;"> &nbsp;</td>
       </tr>
       </thead>
       <tbody>
       <% @users.each do |user| %>
           <tr>
+            <td>
+              <% unless user.id.nil? %><%= user.id %>
+              <% end %>
+            </td>
             <td>
               <% unless user.username.nil? %><%= user.username %>
               <% end %>

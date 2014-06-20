@@ -5,7 +5,7 @@ class ContactsController < ApplicationController
 
   def index
     @q = Contact.search(params[:q])
-    @contacts = @q.result.order('id desc').includes(:participated_groups).paginate(:page => params[:page], :per_page => 50)
+    @contacts = @q.result.order('authenticated ASC, id DESC').includes(:participated_groups).paginate(:page => params[:page], :per_page => 50)
     respond_to do |format|
       format.json
       format.html # /app/views/contacts/index.html.erb

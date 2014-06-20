@@ -1,6 +1,6 @@
 <%= simple_form_for @contact do |f| %>
     <%= f.input :name, label: '姓名' %>
-    <%= f.input :authenticated, label: '<span class="Hinweis" rel="tooltip" title="信息是否通过审核">审核</span>'.html_safe %>
+    <%= f.input :authenticated, label: '<span class="Hinweis" rel="tooltip" title="信息审核通过请打勾">审核</span>'.html_safe %>
     <%= f.association :participated_groups, label_method: :name, value_method: :id, label: '小组', as: :check_boxes, :include_blank => false %>
     <%= f.input :gender, as: :radio_buttons, collection: [['男', 1], ['女', 0]], label: '性别' %>
     <%= f.input :job, label: '<span class="Hinweis" rel="tooltip" title="现在的状况：在校学生，工作人士？">职业</span>'.html_safe, placeholder: '在校学生，工作人士，正找工作等' %>

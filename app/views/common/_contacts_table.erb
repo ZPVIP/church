@@ -1,31 +1,31 @@
 <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
   <thead>
   <tr>
-    <td><i class="fa fa-user"></i> <span class="Hinweis" rel="tooltip" title="点击查看详细信息">姓名</span> <i class="fa fa-sort"></i></td>
-    <td><i class="fa fa-phone"></i> 电话</td>
+    <td style="width:73px;min-width:73px"><i class="fa fa-user"></i> <span class="Hinweis" rel="tooltip" title="点击查看详细信息">姓名</span> <i class="fa fa-sort"></i></td>
+    <td style="width:139px;min-width:139px"><i class="fa fa-phone"></i> 电话</td>
     <td><i class="fa fa-envelope"></i> Email</td>
     <td><i class="fa fa-wechat"></i> 微信</td>
-    <td><i class="fa fa-calendar"></i> 生日</td>
-    <td><i class="fa fa-calendar"></i> <span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span></td>
-    <td><i class="fa fa-calendar"></i> 决志</td>
-    <td><i class="fa fa-user"></i> <span class="Hinweis" rel="tooltip" title="谁带领决志祷告">带领</span></td>
-    <td><i class="fa fa-calendar"></i> 受洗</td>
-    <td><i class="fa fa-calendar"></i> <span class="Hinweis" rel="tooltip" title="离开Aachen">离开</span></td>
-    <td><i class="fa fa-comment"></i> 备注</td>
-    <td> &nbsp;</td>
-    <td> &nbsp;</td>
+    <td style="width:68px;min-width:68px"><i class="fa fa-calendar"></i> 生日</td>
+    <td style="width:68px;min-width:68px"><i class="fa fa-calendar"></i> <span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span></td>
+    <td style="width:68px;min-width:68px"><i class="fa fa-calendar"></i> 决志</td>
+    <td style="min-width:88px"><i class="fa fa-user"></i> <span class="Hinweis" rel="tooltip" title="谁带领决志祷告">带领</span></td>
+    <td style="width:68px;min-width:68px"><i class="fa fa-calendar"></i> 受洗</td>
+    <td style="width:68px;min-width:68px"><i class="fa fa-calendar"></i> <span class="Hinweis" rel="tooltip" title="离开Aachen">离开</span></td>
+    <td style="min-width:88px"><i class="fa fa-comment"></i> 备注</td>
+    <td style="width:30px;min-width:30px"> &nbsp;</td>
+    <td style="width:30px;min-width:30px"> &nbsp;</td>
   </tr>
   </thead>
   <tbody>
   <% @contacts.each do |contact| %>
-      <tr>
-        <td style="min-width:73px"> <%= link_to(contact_path(contact)) do %>
+      <tr <%unless contact.authenticated%>style="background-color:#F2DEDE;"<%end;%>>
+        <td> <%= link_to(contact_path(contact)) do %>
               <% if contact.gender==0 %>
                   <i class="fa fa-female lg red"></i> <%= contact.name %>
               <% else %>
                   <i class="fa fa-male lg blue"></i> <%= contact.name %>
               <% end end %> </td>
-        <td style="min-width:139px">
+        <td>
           <% if contact.mobile.blank? then %>
               <%= contact.telephone %>
           <% else %>
@@ -57,7 +57,7 @@
         <td>
           <% unless contact.decision.nil? %><%= contact.decision.strftime('%Y-%m') %>
           <% end %></td>
-        <td style="min-width:88px">
+        <td>
           <% unless contact.decision_with.nil? then
                if contact.decision_with.length > 6 %>
                   <span class="Hinweis" rel="tooltip" title="<%= contact.decision_with %>"><%= truncate(contact.decision_with, :length => 6) %></span>
@@ -71,7 +71,7 @@
         <td>
           <% unless contact.go.nil? %><%= contact.go.strftime('%Y-%m') %>
           <% end %></td>
-        <td style="min-width:88px">
+        <td>
           <% unless contact.comment.nil? then
                if contact.comment.length > 5 %>
                   <span class="Hinweis" rel="tooltip" title="<%= contact.comment %>"><%= truncate(contact.comment, :length => 5) %></span>
