@@ -16,8 +16,8 @@
           <tr id="tr_<%=calendar.id%>" <%= (calendar.level==0)?('class="odd"'.html_safe):''%>>
             <td style="width:30px;min-width:30px;"> <%= calendar.id %></td>
             <td style="width:70px;min-width:70px;">
-              <%= if    calendar.level==1 && (calendar.leaf?);link_to('<i class="fa fa-user"></i> 添加'.html_safe, '#', class: "add_name", parent_id: calendar.id,  datum: calendar.datum);
-                  elsif calendar.level==2;link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, '#', :class => 'update_name', id:calendar.id, name: calendar.name);end%>
+              <%= if    calendar.level==1 && (calendar.leaf?);link_to('<i class="fa fa-user"></i> 添加'.html_safe, '#', class: "add_name", parent_id: calendar.id, datum: calendar.datum, 'data-ajax'=> 'false');
+                  elsif calendar.level==2;link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, '#', :class => 'update_name', id:calendar.id, name: calendar.name, 'data-ajax'=> 'false');end%>
             </td>
             <td style="min-width:120px;"><%=
                 if calendar.level==0

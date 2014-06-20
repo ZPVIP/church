@@ -23,35 +23,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_contacts_table.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/common/_contacts_table.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="15" selection-start="765" selection-end="765" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="1440">
-              <folding>
-                <element signature="n#style#0;n#td#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#4;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#7;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="128" selection-start="2261" selection-end="2261" vertical-scroll-proportion="-8.75" vertical-offset="450" max-vertical-offset="1650">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="edit.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/contacts/edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="240">
-              <folding />
+              <folding>
+                <marker date="1401222205000" expanded="true" signature="120:189" placeholder="..." />
+                <marker date="1401222205000" expanded="true" signature="146:182" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,7 +39,9 @@
         <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="5" column="84" selection-start="515" selection-end="515" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="495">
-              <folding />
+              <folding>
+                <marker date="1403299102000" expanded="true" signature="2767:2875" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,15 +64,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/contacts/show.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="10" selection-start="645" selection-end="645" vertical-scroll-proportion="-5.0" vertical-offset="180" max-vertical-offset="1275">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_show_contacts.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/common/_show_contacts.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -104,21 +76,49 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/calendars/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="285" selection-start="2989" selection-end="2989" vertical-scroll-proportion="-23.333334" vertical-offset="250" max-vertical-offset="990">
+            <state line="54" column="80" selection-start="2036" selection-end="2036" vertical-scroll-proportion="-7.5" vertical-offset="630" max-vertical-offset="1050">
               <folding>
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#textarea#0;n#p#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calendars_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="services_edit.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/calendars/services_edit.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="159" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.39473686" vertical-offset="135" max-vertical-offset="1485">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ability.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="19" selection-start="190" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="795">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendars_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="45" selection-start="832" selection-end="832" vertical-scroll-proportion="0.37552157" vertical-offset="15" max-vertical-offset="1815">
+            <state line="23" column="35" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="2085">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="403" selection-end="432" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="285">
               <folding />
             </state>
           </provider>
@@ -158,12 +158,10 @@
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/friends/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/groups/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/calendars/services_edit.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/config/initializers/ransack.rb" />
         <option value="$PROJECT_DIR$/app/models/contact.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20140619184212_add_birth_month_to_contacts.rb" />
-        <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/gatherings_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/groups_controller.rb" />
@@ -186,8 +184,10 @@
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/common/_show_contacts.html.erb" />
         <option value="$PROJECT_DIR$/app/views/contacts/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/calendars/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/calendars_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/calendars/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/calendars/services_edit.html.erb" />
       </list>
     </option>
   </component>
@@ -532,6 +532,24 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="caachen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="caachen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -815,7 +833,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.403576" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40229884" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -921,13 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/calendars/services_edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="23" selection-start="332" selection-end="332" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="1485">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="346" column="15" selection-start="6777" selection-end="6777" vertical-scroll-proportion="0.0" vertical-offset="4915" max-vertical-offset="5445">
@@ -966,13 +977,6 @@
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="25" selection-start="413" selection-end="425" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="25" selection-start="39" selection-end="39" vertical-scroll-proportion="0.0" vertical-offset="295" max-vertical-offset="795">
           <folding />
         </state>
       </provider>
@@ -1029,13 +1033,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/groups/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="536">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="58" selection-start="231" selection-end="231" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="285">
           <folding />
         </state>
       </provider>
@@ -1134,16 +1131,6 @@
     <entry file="file://$PROJECT_DIR$/app/views/friends/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="24" selection-start="758" selection-end="758" vertical-scroll-proportion="-8.75" vertical-offset="0" max-vertical-offset="1200">
-          <folding>
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="20" selection-start="1136" selection-end="1136" vertical-scroll-proportion="0.52506596" vertical-offset="56" max-vertical-offset="555">
           <folding />
         </state>
       </provider>
@@ -1184,21 +1171,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="513">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="240">
+          <folding>
+            <marker date="1401222205000" expanded="true" signature="120:189" placeholder="..." />
+            <marker date="1401222205000" expanded="true" signature="146:182" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="84" selection-start="515" selection-end="515" vertical-scroll-proportion="-3.125" vertical-offset="0" max-vertical-offset="495">
-          <folding />
+          <folding>
+            <marker date="1403299102000" expanded="true" signature="2767:2875" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/friends/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="86" selection-start="354" selection-end="354" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="525">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="19" selection-start="190" selection-end="196" vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="68" selection-start="417" selection-end="417" vertical-scroll-proportion="0.23746702" vertical-offset="0" max-vertical-offset="540">
           <folding />
         </state>
       </provider>
@@ -1210,21 +1216,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/calendars/index.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/groups/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="285" selection-start="2989" selection-end="2989" vertical-scroll-proportion="-23.333334" vertical-offset="250" max-vertical-offset="990">
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#2;n#!!top" expanded="true" />
-          </folding>
+        <state line="8" column="0" selection-start="403" selection-end="432" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="285">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/calendars_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="45" selection-start="832" selection-end="832" vertical-scroll-proportion="0.37552157" vertical-offset="15" max-vertical-offset="1815">
+        <state line="23" column="35" selection-start="998" selection-end="998" vertical-scroll-proportion="0.0" vertical-offset="1" max-vertical-offset="2085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/calendars/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="80" selection-start="2036" selection-end="2036" vertical-scroll-proportion="-7.5" vertical-offset="630" max-vertical-offset="1050">
+          <folding>
+            <element signature="n#style#0;n#textarea#0;n#p#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/calendars/services_edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="159" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.39473686" vertical-offset="135" max-vertical-offset="1485">
           <folding />
         </state>
       </provider>

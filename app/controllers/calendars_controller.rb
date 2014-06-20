@@ -7,11 +7,29 @@ class CalendarsController < ApplicationController
     #@calendars = Calendar.all
     @q = Calendar.search(params[:q])
     @calendars = @q.result.where("depth = 0").order("datum DESC, lft ASC").paginate(:page => params[:page], :per_page => 28)
+    @tmp_report = ''
+
+    unless params[:q].blank?
+      @tmp_report += '聚会时间：' + @calendars.first.datum.year.to_s + '年' + @calendars.first.datum.month.to_s + '月' + @calendars.first.datum.day.to_s + '日 周六15:00-17:30&#13;&#10;聚会地点：3号房间，FeG Roermonder Straße 110，52062 Aachen&#13;&#10;&#13;&#10;'
+      @calendars.each{|c|
+        c.children.each{ |ch|
+          if not ch.leaf?
+            ch.children.each{|chi|
+              unless chi.name.blank?
+                @tmp_report += c.name + ch.name + ': ' +  chi.name + '&#13;&#10;'
+              end
+            }
+          end
+        }
+        @tmp_report += '&#13;&#10;'
+      }
+    end
+
     @calendars.each{|c|
       tmp_name=''
-      tmp_name += '<span class="red">' + c.name + '</span> ';
+      tmp_name += '<span class="red">' + c.name + '</span> '
       c.children.each{ |ch|
-        tmp_name += '<span class="green">' + ch.name + ':</span> ';
+        tmp_name += '<span class="green">' + ch.name + ':</span> '
         if not ch.leaf?
           ch.children.each{|chi|
             tmp_name += chi.name.blank? ? ('<span class="fuchsia">未填写</span> '):('<span class="blue">' + chi.name + '</span> ');
