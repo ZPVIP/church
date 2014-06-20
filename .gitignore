@@ -14,8 +14,4 @@
 /log/*.log
 /tmp
 .idea/
-.iws
-workspace.xml
-tasks.xml
 Gemfile.lock
-.idea/workspace.xml
