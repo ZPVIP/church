@@ -73,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/calendars/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="80" selection-start="2036" selection-end="2036" vertical-scroll-proportion="-7.5" vertical-offset="630" max-vertical-offset="1050">
+            <state line="58" column="107" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.6315789" vertical-offset="630" max-vertical-offset="1050">
               <folding>
                 <element signature="n#style#0;n#textarea#0;n#p#1;n#div#0;n#div#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
@@ -88,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services_edit.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="services_edit.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/calendars/services_edit.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="159" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.39473686" vertical-offset="135" max-vertical-offset="1485">
+            <state line="19" column="159" selection-start="1045" selection-end="1045" vertical-scroll-proportion="-6.25" vertical-offset="135" max-vertical-offset="1485">
               <folding />
             </state>
           </provider>
@@ -186,8 +186,8 @@
         <option value="$PROJECT_DIR$/app/views/contacts/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/calendars_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/calendars/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/calendars/services_edit.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/calendars/index.html.erb" />
       </list>
     </option>
   </component>
@@ -1230,9 +1230,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/calendars/services_edit.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="159" selection-start="1045" selection-end="1045" vertical-scroll-proportion="-6.25" vertical-offset="135" max-vertical-offset="1485">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/calendars/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="80" selection-start="2036" selection-end="2036" vertical-scroll-proportion="-7.5" vertical-offset="630" max-vertical-offset="1050">
+        <state line="58" column="107" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.6315789" vertical-offset="630" max-vertical-offset="1050">
           <folding>
             <element signature="n#style#0;n#textarea#0;n#p#1;n#div#0;n#div#1;n#!!top" expanded="true" />
             <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
@@ -1240,13 +1247,6 @@
             <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#3;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/calendars/services_edit.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="159" selection-start="1045" selection-end="1045" vertical-scroll-proportion="0.39473686" vertical-offset="135" max-vertical-offset="1485">
-          <folding />
         </state>
       </provider>
     </entry>
