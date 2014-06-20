@@ -14,10 +14,10 @@ class CalendarsController < ApplicationController
         tmp_name += '<span class="green">' + ch.name + ':</span> ';
         if not ch.leaf?
           ch.children.each{|chi|
-            tmp_name += chi.name.blank? ? ('<span class="fuchsia">待定</span> '):('<span class="blue">' + chi.name + '</span> ');
+            tmp_name += chi.name.blank? ? ('<span class="fuchsia">未填写</span> '):('<span class="blue">' + chi.name + '</span> ');
           }
         else
-          tmp_name += '<span class="fuchsia">待定</span> ';
+          tmp_name += '<span class="fuchsia">未填写</span> ';
         end
       }
       c.name = tmp_name

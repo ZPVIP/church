@@ -1,10 +1,10 @@
 class FriendsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_friend, only: [:show, :edit, :update, :destroy]
+  before_action :set_friend, only: [:show, :edit, :update]
 
   # GET /friends
   def index
-    #@friends = Friend.where(:authenticated => false)
+    @friends = Friend.where(:authenticated => false, :register_ip => my_ip)
   end
 
   # GET /friends/1

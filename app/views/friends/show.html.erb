@@ -6,6 +6,8 @@
   <% else %>
       <span class="blue"> <%= @friend.name %></span>
   <% end %>
+
+  <small><%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_friend_path(@friend), :class => "blue") %></small>
 </h2>
 
 <div class="row">

@@ -13,5 +13,8 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/.idea/*
+.idea/
+.iws
+workspace.xml
+tasks.xml
 Gemfile.lock
