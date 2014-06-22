@@ -30,7 +30,7 @@
               <% end %>
             </td>
             <td>
-              <% unless admin_permission.description.nil? %><%= admin_permission.description %>
+              <% unless admin_permission.description.nil? %> <%= link_to admin_permission.description, admin_permission_path(admin_permission) %><%=  %>
               <% end %>
             </td>
             <td style="width:70px;min-width:70px;">

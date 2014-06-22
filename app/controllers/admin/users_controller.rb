@@ -17,7 +17,6 @@ class Admin::UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    logger.debug @user
   end
 
   def update

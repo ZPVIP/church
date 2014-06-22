@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
 
   # GET /groups
   def index
-    @groups = Group.all
+    @groups = Group.all.order('id')
   end
 
   # GET /groups/1
@@ -37,7 +37,6 @@ class GroupsController < ApplicationController
   # DELETE /groups/1
   def destroy
     @group.destroy ? (redirect_to groups_path, notice: 'Group was successfully deleted.') : (redirect_to groups_path, alert: '该小组还有成员，不能删除.')
-
   end
 
   private

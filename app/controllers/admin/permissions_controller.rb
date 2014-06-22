@@ -8,6 +8,11 @@ class Admin::PermissionsController < ApplicationController
     @permissions = Permission.all
   end
 
+  # GET /admin/permissions/1
+  def show
+    @users=@permission.users
+  end
+
   # GET /admin/permissions/new
   def new
     @permission = Permission.new
@@ -25,21 +30,12 @@ class Admin::PermissionsController < ApplicationController
 
   # PATCH/PUT /admin/permissions/1
   def update
-    respond_to do |format|
-      if @permission.update(permission_params)
-        format.html { redirect_to admin_permissions_path, notice: 'Permission was successfully updated.' }
-      else
-        format.html { render action: 'edit' }
-      end
-    end
+    @permission.update(permission_params) ? (redirect_to admin_permissions_path, notice: 'Permission was successfully updated.') : (render 'edit')
   end
 
   # DELETE /admin/permissions/1
   def destroy
-    @permission.destroy
-    respond_to do |format|
-      format.html { redirect_to admin_permissions_url }
-    end
+    @permission.destroy ? (redirect_to admin_permissions_path, notice: 'Permission was successfully deleted.') : (redirect_to admin_permissions_path, alert: '还有用户拥有这个权限，不能删除.')
   end
 
   private

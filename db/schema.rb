@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620200252) do
+ActiveRecord::Schema.define(version: 20140622064331) do
 
   create_table "calendars", force: true do |t|
     t.date     "datum"
@@ -99,13 +99,7 @@ ActiveRecord::Schema.define(version: 20140620200252) do
     t.datetime "updated_at"
   end
 
-  create_table "permissions_users", id: false, force: true do |t|
-    t.integer "permission_id"
-    t.integer "user_id"
-  end
-
-  add_index "permissions_users", ["permission_id", "user_id"], name: "index_permissions_users_on_permission_id_and_user_id", using: :btree
-  add_index "permissions_users", ["user_id", "permission_id"], name: "index_permissions_users_on_user_id_and_permission_id", using: :btree
+  add_index "permissions", ["description"], name: "index_permissions_on_description", using: :btree
 
   create_table "services", force: true do |t|
     t.string   "title"
@@ -121,6 +115,14 @@ ActiveRecord::Schema.define(version: 20140620200252) do
   add_index "services", ["lft"], name: "index_services_on_lft", using: :btree
   add_index "services", ["parent_id"], name: "index_services_on_parent_id", using: :btree
   add_index "services", ["rgt"], name: "index_services_on_rgt", using: :btree
+
+  create_table "user_permissions", id: false, force: true do |t|
+    t.integer "permission_id"
+    t.integer "user_id"
+  end
+
+  add_index "user_permissions", ["permission_id", "user_id"], name: "index_user_permissions_on_permission_id_and_user_id", using: :btree
+  add_index "user_permissions", ["user_id", "permission_id"], name: "index_user_permissions_on_user_id_and_permission_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

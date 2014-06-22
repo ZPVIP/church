@@ -5,7 +5,6 @@ class ServicesController < ApplicationController
 
   # GET /services
   def index
-    #@services = Service.all.order('lft')
     @services = Service.nested_set.all
   end
 
