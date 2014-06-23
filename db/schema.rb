@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140622064331) do
+ActiveRecord::Schema.define(version: 20140623190215) do
 
   create_table "calendars", force: true do |t|
     t.date     "datum"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20140622064331) do
     t.string   "native_place"
     t.string   "register_ip"
     t.integer  "birth_month"
+    t.string   "spouse"
   end
 
   add_index "contacts", ["authenticated"], name: "index_contacts_on_authenticated", using: :btree

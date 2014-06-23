@@ -5,11 +5,11 @@
     <td style="min-width:60px;"> 用户名</td>
     <td style="min-width:60px;"> 真名</td>
     <td style="min-width:60px;"> Email</td>
-    <td style="width:50px;min-width:50px;"> <span class="Hinweis" title="登录次数">次数</span></td>
-    <td style="width:90px;min-width:90px;"> 注册日期</td>
-    <td style="width:90px;min-width:90px;"> 最近登录</td>
+    <td style="width:50px;min-width:50px;"> <span class="Hinweis" rel="tooltip" title="登录次数">次数</span></td>
+    <td style="width:95px;min-width:95px;"> 注册日期</td>
+    <td style="width:95px;min-width:95px;"> 最近登录</td>
     <td style="width:123px;min-width:123px;"> 最近 IP</td>
-    <td style="width:90px;min-width:90px;"> 上次登录</td>
+    <td style="width:95px;min-width:95px;"> 上次登录</td>
     <td style="width:123px;min-width:123px;"> 上次 IP</td>
     <td style="width:30px;min-width:30px;"> &nbsp;</td>
   </tr>
@@ -38,11 +38,11 @@
           <% end %>
         </td>
         <td>
-          <% unless user.created_at.nil? %><span class="Hinweis" title="<%= user.created_at %>"><%= user.created_at.strftime('%Y-%m-%d') %> </span>
+          <% unless user.created_at.nil? %><span class="Hinweis" rel="tooltip" title="<%= user.created_at %>"><%= user.created_at.strftime('%Y-%m-%d') %> </span>
           <% end %>
         </td>
         <td>
-          <% unless user.current_sign_in_at.nil? %><span class="Hinweis" title="<%= user.current_sign_in_at %>"><%= user.current_sign_in_at.strftime('%Y-%m-%d') %> </span>
+          <% unless user.current_sign_in_at.nil? %><span class="Hinweis" rel="tooltip" title="<%= user.current_sign_in_at %>"><%= user.current_sign_in_at.strftime('%Y-%m-%d') %> </span>
           <% end %>
         </td>
         <td>
@@ -50,7 +50,7 @@
           <% end %>
         </td>
         <td>
-          <% unless user.last_sign_in_at.nil? %><span class="Hinweis" title="<%= user.last_sign_in_at %>"><%= user.last_sign_in_at.strftime('%Y-%m-%d') %> </span>
+          <% unless user.last_sign_in_at.nil? %><span class="Hinweis" rel="tooltip" title="<%= user.last_sign_in_at %>"><%= user.last_sign_in_at.strftime('%Y-%m-%d') %> </span>
           <% end %>
         </td>
         <td>

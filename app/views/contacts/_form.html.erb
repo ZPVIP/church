@@ -19,6 +19,7 @@
     <%= f.input :go, label: '<span class="Hinweis" rel="tooltip" title="离开Aachen的时间">离开</span>'.html_safe, :as => :string, placeholder: '格式:YYYY-MM-DD 年-月-日' %>
     <%= f.input :address, label: '地址', placeholder: 'Roermonder straße 110 52072 Aachen' %>
     <%= f.input :native_place, label: '籍贯', placeholder: '湖南' %>
+    <%= f.input :spouse, label: '配偶' %>
     <%= f.input :pray, label: '<span class="Hinweis" rel="tooltip" title="希望我们代祷的事项">代祷</span>'.html_safe %>
     <%= f.input :comment, label: '备注' %>
     <%= f.hidden_field  :register_ip, value: @my_ip %>
