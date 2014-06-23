@@ -1,0 +1,13 @@
+<%= render partial: 'common/header', locals: {sub_title: '用户组：'+ @group.name, breadcrumb: @group.name + '成员', new_path: nil} %>
+
+<div class="row">
+  <div class="col-lg-12">
+    <p>点击下面的文本框会选中<%= @group.name %>所有邮件，可以复制后直接输入到 Gmail 地址栏:</p>
+    <p><textarea rows="2" onclick="this.focus();this.select()" readonly style="width:100%" ><%=@emails%></textarea></p>
+    <%= render 'common/contacts_table' %>
+
+  </div>
+</div><!-- /.row -->
+
+
+

@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h1><%=homepage_name %> <small>Edit <%= resource_name.to_s.humanize %></small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
+      <li class="active"><i class="fa fa-table"></i> 注册</li>
+    </ol>
+  </div>
+</div><!-- /.row -->
+
+<div class="row">
+  <div class="col-lg-12">
+
+    <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :username, label: '用户名', readonly:true %>
+          <%= f.input :name, label: '真实姓名', :required => true, :placeholder => '请填写真实姓名', :autofocus => true %>
+
+          <%= f.input :email, :required => true, :autofocus => true %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <%= f.input :password, label: '密码', :autocomplete => "off", :hint => "如果你不想修改密码请留空", :required => false %>
+          <%= f.input :password_confirmation, label: '重复密码', :required => false %>
+          <%= f.input :current_password, label: '当前密码', :hint => "任何改动都需要输入密码", :required => true %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.submit "更新", data: {disable_with: '正在提交...' }, :class => "btn btn-primary"%>
+        </div>
+    <% end %>
+  </div>
+</div><!-- /.row -->

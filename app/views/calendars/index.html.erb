@@ -1,0 +1,65 @@
+<%= render partial: 'common/header', locals: {sub_title: '服事值日表', breadcrumb: '日历', new_path: new_calendar_path} %>
+
+<div class="row ">
+  <div class="col-lg-12">
+    <div class="gray-background">
+    <%= search_form_for @q, builder: SimpleForm::FormBuilder, url: calendars_path, html: {method: :get, class: 'simple_form form-horizontal'} do |f| %>
+        <%= f.input :datum_eq, :required => false, label: '按日期查找', as: :date, start_year: Time.now.year-3, end_year: Time.now.year + 3, order: [:year, :month, :day]  %>
+        <div class="form-actions col-lg-2 col-md-3 col-sm-3 col-xs-3 lft-btn">
+          <%= f.submit "查找", data: {disable_with: '正在努力查找中...'}, :class => "btn btn-primary" %>
+        </div>
+        <div style="clear:both;"></div>
+    <% end %>
+    </div>
+  </div>
+</div><!-- /.row -->
+
+<% unless @tmp_report.blank? %>
+<div class="row">
+  <div class="col-lg-12">
+    <p>点击下面的文本框会选中所有文本，可以复制后直接输入到 Gmail:</p>
+    <p><textarea rows="7" onclick="this.focus();this.select()" readonly style="width:100%" ><%= @tmp_report.html_safe %></textarea></p>
+  </div>
+</div><!-- /.row -->
+<% end %>
+
+<div>&nbsp;</div>
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <% if @tmp_report.blank? %>
+    <div>
+      <p>
+        点击最上方<span class="green">绿色的“添加”</span>按钮可以添加新的一周服事安排。
+        点击表格中的日期可以进入编辑页面。<br>
+        <% if can? :manage, Calendar %>点击右侧的任何一个“<span class="red">删除</span>”按钮会将当天所有的小组的服事值日表全部删除。
+            因为没办法单独删除某个小组的服事安排，所以在删除前请跟其他小组负责人商量好，以便重新输入服事安排。<% end %>
+      </p>
+    </div>
+    <% end %>
+    <div class="flickr_pagination">
+      <%= will_paginate @calendars, :container => false %>
+    </div>
+
+    <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
+      <thead>
+      <tr>
+        <th style="min-width:92px">日期</th>
+        <th>项目</th>
+        <% if can? :manage, Calendar %><th>&nbsp;</th><% end %>
+      </tr>
+      </thead>
+      <tbody>
+      <% @calendars.each do |calendar| %>
+          <tr class="<%= (calendar.datum.cweek.remainder(2)==1)?'odd':'even'%>">
+            <td style="width:45px;min-width:45px;"><%= link_to(calendar.datum.to_s,  services_edit_calendars_path(calendar.datum.to_s), 'data-no-turbolink' => true)%></td>
+            <td style="min-width:120px;"><%= "#{'⇢' * calendar.level} #{calendar.name}".html_safe %></td>
+            <!--td style="width:70px;min-width:70px;"><%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe,  services_edit_calendars_path(calendar.datum.to_s), :class => "blue")%></td-->
+            <% if can? :manage, Calendar %><td style="width:30px;min-width:30px;"><%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, services_delete_calendars_path(calendar.datum.to_s), :class => "red", :method => :delete, data: {confirm: '你确定要删除这天"所有小组"的服事安排吗？'}) %></td><% end %>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div><!-- /.row -->

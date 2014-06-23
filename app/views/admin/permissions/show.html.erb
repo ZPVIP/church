@@ -1,0 +1,12 @@
+<%= render partial: 'common/header', locals: {sub_title: '权限：拥有“' + @permission.description + '”权限的用户', breadcrumb: '查看', new_path: nil} %>
+
+<div class="row">
+  <div class="col-lg-12">
+
+    <%= render 'common/user_table' %>
+
+  </div>
+</div><!-- /.row -->
+
+
+

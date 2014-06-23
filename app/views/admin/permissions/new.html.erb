@@ -1,0 +1,35 @@
+<%= render partial: 'common/header', locals: {sub_title: '权限', breadcrumb: '添加', new_path: nil} %>
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <h3> Action</h3>
+    <table class="table table-bordered table-hover" style="width: 300px">
+      <tr>
+        <td>manage </td>
+        <td>controller 內所有的 action</td>
+      </tr>
+      <tr>
+        <td>create </td>
+        <td>:new 和 :create</td>
+      </tr>
+      <tr>
+        <td>read </td>
+        <td>:index 和 :show</td>
+      </tr>
+      <tr>
+        <td>update </td>
+        <td>:edit 和 :update</td>
+      </tr>
+      <tr>
+        <td>destroy </td>
+        <td>:destroy</td>
+      </tr>
+    </table>
+
+  </div>
+</div><!-- /.row -->
+
+<%= render 'form' %>
+
+
