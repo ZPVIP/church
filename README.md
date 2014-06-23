@@ -9,7 +9,8 @@ Church
 - 在[Heroku](http://www.heroku.com) 注册一个免费帐户，新建一个APP，比如说 caachen
 - 在本地电脑上 clone 一份代码 `git clone git@github.com:ZPVIP/church.git`
 - 把 config/database.example.yml 改名为  config/database.yml
-- 点击 Heroku 最上面导航栏的 Databases 新建一个 Postgresql 数据库，将 Connection Settings 的相关信息写入 config/database.yml
+- 点击 Heroku 最上面导航栏的 Databases 新建一个 Postgresql 数据库
+- 将数据库 Connection Settings 的相关信息填入 config/database.yml 的 `production:` 下面
 - 编辑 .git/config，最下面加上相关信息，请把 caachen 换成你的 APP 名字
 ```
 [remote "heroku"]
@@ -18,7 +19,7 @@ fetch = +refs/heads/*:refs/remotes/heroku/*
 ```
 - 安装 [heroku](https://toolbelt.heroku.com/) 命令行工具，然后执行以下命令就可以了跑起来了：
 ```
-heroku login
+heroku login (输入用户名和密码)
 git push heroku master
 heroku run RAILS_ENV=production bundle exec rake assets:precompile
 heroku run rake db:migrate
