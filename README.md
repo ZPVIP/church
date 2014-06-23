@@ -5,6 +5,26 @@ Church
 
 如果有功能上的建议或改进，欢迎发 Pull Request。
 
+###部署到 Heroku
+- 在[Heroku](http://www.heroku.com) 注册一个免费帐户，新建一个APP，比如说 caachen
+- 在本地电脑上 clone 一份代码 `git clone git@github.com:ZPVIP/church.git`
+- 把 config/database.example.yml 改名为  config/database.yml
+- 点击 Heroku 最上面导航栏的 Databases 新建一个 Postgresql 数据库，将 Connection Settings 的相关信息写入 config/database.yml
+- 编辑 .git/config，最下面加上相关信息，请把 caachen 换成你的 APP 名字
+```
+[remote "heroku"]
+url = git@heroku.com:caachen.git
+fetch = +refs/heads/*:refs/remotes/heroku/*
+```
+- 安装 [heroku](https://toolbelt.heroku.com/) 命令行工具，然后执行以下命令就可以了跑起来了：
+heroku login
+git push heroku master
+heroku run RAILS_ENV=production bundle exec rake assets:precompile
+heroku run rake db:migrate
+heroku restart -a caachen
+
+## 系统使用说明
+
 ###如何添加一个联系人？
 
 - 如果想把老通讯录的联系人信息转移到本系统，点击‘联系人列表’页面标题右侧的绿色‘添加’按钮。注意填写的时候在‘审核’那行打钩。
@@ -23,10 +43,19 @@ Church
 - 未经过审核的联系人背景为红色，比如说通过‘欢迎新朋友’页面添加的联系人。
 
 ###如何填写服事值日表？
+- 进入‘服事定义’页面，创建服事模板，一共分为两级，比如说：
+
+```
+查经班
+    带领
+    主题
+福音班
+    带领
+    主题
+```
 - 进入‘服事值日表’页面
 - 如果已经存在该周的服事安排，那么点击日期就可以进入编辑页面。如果还不存在该周的服事安排，那么点击页面标题右侧绿色的“添加”按钮可以添加新的一周服事安排。
-- 点击日期进入该周的编辑页面之后，点击相应行左侧的‘添加’，即可填写或编辑。
-
+- 点击日期进入该周的编辑页面之后，点击相应行左侧的‘添加’，即可填写或编辑服事人员。
 - 如果有需要添加新的服事项目，比如说新开了一组姐妹会，请联系管理员，管理员可以很简单地在后台添加。 
 
 ###如何获取服事值日表以便写周报？
