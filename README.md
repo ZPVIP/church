@@ -17,11 +17,13 @@ url = git@heroku.com:caachen.git
 fetch = +refs/heads/*:refs/remotes/heroku/*
 ```
 - 安装 [heroku](https://toolbelt.heroku.com/) 命令行工具，然后执行以下命令就可以了跑起来了：
+```
 heroku login
 git push heroku master
 heroku run RAILS_ENV=production bundle exec rake assets:precompile
 heroku run rake db:migrate
 heroku restart -a caachen
+```
 
 ## 系统使用说明
 
