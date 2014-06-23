@@ -1,0 +1,13 @@
+<%= render partial: 'common/header', locals: {sub_title: '用户', breadcrumb: '所有用户', new_path: nil} %>
+
+<div class="row">
+  <div class="col-lg-12">
+
+    <div class="flickr_pagination">
+      <%= will_paginate @users, :container => false %>
+    </div>
+
+    <%= render 'common/user_table' %>
+
+  </div>
+</div><!-- /.row -->

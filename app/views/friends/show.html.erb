@@ -1,0 +1,30 @@
+<%= render partial: 'common/header', locals: {sub_title: '新朋友', breadcrumb: '详细信息', new_path: nil} %>
+
+<h2>
+  <% if @friend.gender==0 %>
+      <span class="red"> <%= @friend.name %></span>
+  <% else %>
+      <span class="blue"> <%= @friend.name %></span>
+  <% end %>
+
+  <small><%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_friend_path(@friend), :class => "blue") %></small>
+</h2>
+
+<div class="row">
+  <div class="col-lg-12">
+
+    <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
+      <%= render partial:'common/show_contacts', locals: {contact: @friend} %>
+      <tr>
+        <td><i class="fa fa-calendar"></i></td>
+        <td><span class="Hinweis" title="信息创建时间">创建</span></td>
+        <td> <%= @friend.created_at %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-calendar"></i></td>
+        <td><span class="Hinweis" title="信息更新时间">更新</span></td>
+        <td> <%= @friend.updated_at %> </td>
+      </tr>
+    </table>
+  </div>
+</div><!-- /.row -->

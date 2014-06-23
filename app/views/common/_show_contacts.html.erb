@@ -1,0 +1,64 @@
+<tr>
+  <td style="width:10px;"><i class="fa fa-university"></i></td>
+  <td style="width:20px;"><span class="Hinweis" rel="tooltip" title="学生，工作或家庭主妇等">职业</span></td></td>
+  <td> <%= contact.job %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-calendar"></i></td>
+  <td>生日</td>
+  <td> <%= contact.birthday %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-envelope"></i></td>
+  <td>Email</td>
+  <td> <%= contact.email %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-mobile"></i></td>
+  <td>手机</td>
+  <td> <%= contact.mobile %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-phone"></i></td>
+  <td>座机</td>
+  <td> <%= contact.telephone %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-question"></i></td>
+  <td><span class="Hinweis" rel="tooltip" title="您是如何知道我们的？">HOW</span></td>
+  <td>
+    <%= case contact.find_us
+          when 0 then
+            "搜索引擎"
+          when 1 then
+            "网站或论坛"
+          when 2 then
+            "活动宣传"
+          when 3 then
+            "团契朋友介绍"
+          when 4 then
+            "其它"
+        end
+    %>
+  </td>
+</tr>
+<tr>
+  <td><i class="fa fa-list-ol"></i></td>
+  <td><span class="Hinweis" rel="tooltip" title="对上列的补充">补充</span></td>
+  <td> <%= contact.find_us_additional %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-group"></i></td>
+  <td><span class="Hinweis" rel="tooltip" title="您愿意参加的聚会">聚会</span></td>
+  <td> <%= contact.participated_gatherings.map { |c| c.gathering }.sort.join(', ') %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-wechat"></i></td>
+  <td>微信</td>
+  <td> <%= contact.wechat %> </td>
+</tr>
+<tr>
+  <td><i class="fa fa-upload"></i></td>
+  <td>代祷</td>
+  <td> <%= contact.pray %> </td>
+</tr>

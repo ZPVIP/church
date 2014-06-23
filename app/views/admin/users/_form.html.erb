@@ -1,0 +1,10 @@
+<%= simple_form_for [:admin, @user] do |f| %>
+    <%= f.input :username, label: '用户名', readonly: true %>
+    <%= f.input :name, label: '真名' %>
+    <%= f.input :email, placeholder: 'CAachen@gmail.com' %>
+    <%= f.input :blocked %>
+    <%= f.association :permissions, collection: Permission.all.order('description ASC'), label: '权限', label_method: :description, as: :check_boxes, :include_blank => false %>
+    <div class="form-actions col-lg-9 col-md-10 col-sm-12 col-xs-12">
+      <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary rgt-btn" %>
+    </div>
+<% end %>

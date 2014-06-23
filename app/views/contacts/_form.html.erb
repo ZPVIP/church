@@ -1,0 +1,29 @@
+<%= simple_form_for @contact do |f| %>
+    <%= f.input :name, label: '姓名' %>
+    <%= f.input :authenticated, label: '<span class="Hinweis" rel="tooltip" title="信息审核通过请打勾">审核</span>'.html_safe %>
+    <%= f.association :participated_groups, collection: Group.all.order('id ASC'), label_method: :name, value_method: :id, label: '小组', as: :check_boxes, :include_blank => false %>
+    <%= f.input :gender, as: :radio_buttons, collection: [['男', 1], ['女', 0]], label: '性别' %>
+    <%= f.input :job, label: '<span class="Hinweis" rel="tooltip" title="学生，工作或家庭主妇等">职业</span>'.html_safe, placeholder: '在校学生，工作人士，正找工作等' %>
+    <%= f.input :birthday, label: '<span class="Hinweis" rel="tooltip" title="如果年份未知，请填写1950年">生日</span>'.html_safe, as: :date, start_year: Time.now.year - 70, end_year: Time.now.year - 8, order: [:year, :month, :day]  %>
+    <%= f.input :email, placeholder: 'CAachen@gmail.com' %>
+    <%= f.input :mobile, label: '手机', placeholder: '+49 176 1234 5678' %>
+    <%= f.input :telephone, label: '座机', placeholder: '+49 241 1234 5678' %>
+    <%= f.input :find_us, label: '<span class="Hinweis" rel="tooltip" title="如何知道我们的？">HOW?</span>'.html_safe, as: :radio_buttons, collection: [["搜索引擎",0], ["网站或论坛",1], ["活动宣传",2], ["团契朋友介绍",3], ["其它",4]], :item_wrapper_class => 'inline' %>
+    <%= f.input :find_us_additional, label: '<span class="Hinweis" rel="tooltip" title="对上列的补充：网站名称，朋友姓名或其他途径等">补充</span>'.html_safe, placeholder: '网站名称，朋友姓名或其他途径等' %>
+    <%= f.association :participated_gatherings, label_method: :gathering, value_method: :id, label: '<span class="Hinweis" rel="tooltip" title="该联系人愿意参加的聚会">聚会</span>'.html_safe, as: :check_boxes, :include_blank => false %>
+    <%= f.input :come, label: '<span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span>'.html_safe, :as => :string, placeholder: '格式:YYYY-MM-DD 年-月-日' %>
+    <%= f.input :wechat, label: '微信', placeholder: '微信号' %>
+    <%= f.input :decision, label: '决志', :as => :string, placeholder: '格式:YYYY-MM-DD 年-月-日' %>
+    <%= f.input :decision_with, label: '<span class="Hinweis" rel="tooltip" title="谁带领决志祷告">带领</span>'.html_safe, :as => :string %>
+    <%= f.input :baptism, label: '受洗', :as => :string, placeholder: '格式:YYYY-MM-DD 年-月-日' %>
+    <%= f.input :go, label: '<span class="Hinweis" rel="tooltip" title="离开Aachen的时间">离开</span>'.html_safe, :as => :string, placeholder: '格式:YYYY-MM-DD 年-月-日' %>
+    <%= f.input :address, label: '地址', placeholder: 'Roermonder straße 110 52072 Aachen' %>
+    <%= f.input :native_place, label: '籍贯', placeholder: '湖南' %>
+    <%= f.input :spouse, label: '配偶' %>
+    <%= f.input :pray, label: '<span class="Hinweis" rel="tooltip" title="希望我们代祷的事项">代祷</span>'.html_safe %>
+    <%= f.input :comment, label: '备注' %>
+    <%= f.hidden_field  :register_ip, value: @my_ip %>
+    <div class="form-actions col-lg-9 col-md-10 col-sm-12 col-xs-12">
+      <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary rgt-btn" %>
+    </div>
+<% end %>
