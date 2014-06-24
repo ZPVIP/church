@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1
   def show
-    @contacts=@group.members
+    @contacts=@group.members.order('id DESC')
     @emails='';
     @contacts.each{|c| @emails += c.name + ' <' + c.email + '>; ' if not c.email.blank?}
   end
