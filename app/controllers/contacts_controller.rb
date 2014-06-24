@@ -89,6 +89,7 @@ class ContactsController < ApplicationController
         :friend_id,
         :pray,
         :native_place,
+        :spouse,
         :authenticated,
         :register_ip,
         :q => [],
