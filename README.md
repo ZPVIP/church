@@ -9,6 +9,7 @@ Church
 - 在[Heroku](http://www.heroku.com) 注册一个免费帐户，新建一个APP，比如说 caachen
 - 在本地电脑上 clone 一份代码 `git clone git@github.com:ZPVIP/church.git`
 - 把 config/database.example.yml 改名为  config/database.yml
+- 打开 .gitignore，删除最后一行 database.yml，保存
 - 点击 Heroku 最上面导航栏的 Databases 新建一个 Postgresql 数据库
 - 将数据库 Connection Settings 的相关信息填入 config/database.yml 的 `production:` 下面
 - 编辑 .git/config，最下面加上相关信息，请把 caachen 换成你的 APP 名字
@@ -23,8 +24,12 @@ heroku login (输入用户名和密码)
 git push heroku master
 heroku run RAILS_ENV=production bundle exec rake assets:precompile
 heroku run rake db:migrate
+heroku run rake db:seed
 heroku restart -a caachen
 ```
+- 管理员帐号：Peter，密码 aaaaaaaa
+- 注册用户默认只能在`欢迎新朋友`页面填写表单
+- 其它用户权限需要管理员在`用户管理`页面编辑用户权限。
 
 ## 系统使用说明
 
@@ -47,14 +52,14 @@ heroku restart -a caachen
 ###如何创建服事模板？
 - 服事模板用于创建服事值日表，如果团契目前有`查经班`和`福音班`两项服事，每个服事有不同的人带领，主题也不一样。
 - 进入‘服事定义’页面，创建服事模板，一共分为两级，比如说：
- ```
+```
  查经班
      带领
      主题
  福音班
      带领
      主题
- ```
+```
 
 ###如何填写服事值日表？
 - 进入‘服事值日表’页面
