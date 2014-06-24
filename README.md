@@ -31,6 +31,10 @@ heroku restart -a caachen
 - 注册用户默认只能在`欢迎新朋友`页面填写表单
 - 其它用户权限需要管理员在`用户管理`页面编辑用户权限。
 
+- 发送 Email，比如用在重置密码方面: 系统默认使用 Gmail 帐户，如使用其它 Email 系统可以在 config/environments/production.rb 更改
+- 设置 Email 帐号，请将 www.caachen.de 换成你的网站域名，例子：`heroku config:add GMAIL_PASSWORD=password12345 GMAIL_USERNAME=youremail@gmail.com GMAIL_DOMAIN=gmail.com APP_DOMAIN=www.caachen.de`
+- 第一次发送邮件时，Gmail 一般会认为有人黑了你的帐号，所以会发送失败，你可以先登录 Gmail，再点击这个[链接](https://www.google.com/accounts/DisplayUnlockCaptcha)。
+
 ## 系统使用说明
 
 ###如何添加一个联系人？
