@@ -17,16 +17,7 @@
 
     <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
       <%= render partial:'common/show_contacts',locals: {contact: @contact} %>
-      <tr>
-        <td><i class="fa fa-map-marker"></i></td>
-        <td>地址</td>
-        <td> <%= @contact.address %> </td>
-      </tr>
-      <tr>
-        <td><i class="fa fa-home"></i></td>
-        <td>籍贯</td>
-        <td> <%= @contact.native_place %> </td>
-      </tr>
+
       <tr>
         <td><i class="fa fa-calendar"></i></td>
         <td><span class="Hinweis" rel="tooltip" title="第一次来团契">首访</span></td>
@@ -53,17 +44,17 @@
         <td> <%= @contact.go %> </td>
       </tr>
       <tr>
-        <td><i class="fa fa-calendar"></i></td>
+        <td><i class="fa fa-map-marker"></i></td>
         <td>地址</td>
         <td> <%= @contact.address %> </td>
       </tr>
       <tr>
-        <td><i class="fa fa-calendar"></i></td>
+        <td><i class="fa fa-home"></i></td>
         <td>籍贯</td>
         <td> <%= @contact.native_place %> </td>
       </tr>
       <tr>
-        <td><i class="fa fa-calendar"></i></td>
+        <td><i class="fa fa-user"></i></td>
         <td>配偶</td>
         <td> <%= @contact.spouse %> </td>
       </tr>
