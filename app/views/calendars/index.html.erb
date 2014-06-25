@@ -4,7 +4,7 @@
   <div class="col-lg-12">
     <div class="gray-background">
     <%= search_form_for @q, builder: SimpleForm::FormBuilder, url: calendars_path, html: {method: :get, class: 'simple_form form-horizontal'} do |f| %>
-        <%= f.input :datum_eq, :required => false, label: '按日期查找', as: :date, start_year: Time.now.year-3, end_year: Time.now.year + 3, order: [:year, :month, :day]  %>
+        <%= f.input :datum_eq, :required => false, label: '日期', selected: DateTime.now.to_date + (6 - DateTime.now.to_date.wday).day, collection: (DateTime.now.to_date - 1.month..DateTime.now.to_date + 1.month).to_a.select {|k| k.saturday?}  %>
         <div class="form-actions col-lg-2 col-md-3 col-sm-3 col-xs-3 lft-btn">
           <%= f.submit "查找", data: {disable_with: '正在努力查找中...'}, :class => "btn btn-primary" %>
         </div>
