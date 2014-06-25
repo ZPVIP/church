@@ -311,21 +311,24 @@ a:hover {
     margin-left: 1em;
 }
 
-#friend_birthday_1i, #contact_birthday_1i, #calendar_datum_1i, #q_datum_eq_1i, #friend_come_1i {
+#friend_birthday_1i, #contact_birthday_1i, #friend_come_1i {
     width: 100px;
     display: inline;
 }
 
-#friend_birthday_2i, #contact_birthday_2i, #calendar_datum_2i, #q_datum_eq_2i, #friend_come_2i {
+#friend_birthday_2i, #contact_birthday_2i, #friend_come_2i {
     width: 120px;
     display: inline;
 }
 
-#friend_birthday_3i, #contact_birthday_3i, #calendar_datum_3i, #q_datum_eq_3i, #friend_come_3i {
+#friend_birthday_3i, #contact_birthday_3i, #friend_come_3i {
     width: 80px;
     display: inline;
 }
 
+#q_datum_eq, #calendar_datum{
+    width: 120px;
+}
 .hide_me {
     height: 1px;
     left: -1000em;

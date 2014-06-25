@@ -5,7 +5,7 @@
 
     <%= simple_form_for(@calendar) do |f| %>
         <%= f.error_notification %>
-        <%= f.input :datum, label: '日期'%>
+        <%= f.input :datum, collection: (DateTime.now.to_date..DateTime.now.to_date + 2.month).to_a.select {|k| k.saturday?}, label: '日期'%>
         <div class="form-actions col-lg-2 col-md-3 col-sm-3 col-xs-3 lft-btn">
           <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary" %>
         </div>
