@@ -1,57 +1,40 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
+  before_action :set_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.all.order('id DESC').paginate(:page => params[:page], :per_page => 50)
   end
 
-  def create
-    @user = User.new(params[:user])
-    if @user.save
-      flash[:notice] = "Successfully created User."
-      redirect_to root_path
-    else
-      render :action => 'new'
-    end
-  end
-
   def edit
-    @user = User.find(params[:id])
   end
 
   def update
-    @user = User.find(params[:id])
-
-    if params[:password].blank?
-      params.delete(:password)
-      if params[:password_confirmation].blank?
-        params.delete(:password_confirmation)
-      end
-    end
-
+    success = false
     if params[:id] == current_user.id.to_s
-      flash[:warn] = "你不能在这里修改自己的信息，请点击右上角的设置"
-      redirect_to admin_users_path
+      redirect_to admin_users_path, alert: "你不能在这里修改自己的信息，请点击右上角的设置"
     else
-      if @user.update(user_params)
-        flash[:notice] = "Successfully updated User."
-        redirect_to admin_users_path
+      if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+        success = @user.update_without_password(user_params)
       else
-        render :edit
+        success = @user.update_attributes(user_params)
       end
+      success ? (redirect_to admin_users_path, notice: '用户信息已更新.') : (render :edit)
     end
   end
 
   def destroy
-    @user = User.find(params[:id])
-    if @user.destroy
-      flash[:notice] = "Successfully deleted User."
-      redirect_to root_path
-    end
+    @user.destroy
+    redirect_to root_path, notice: "Successfully deleted User."
   end
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
   def user_params
     params.require(:user).permit(:name, :username, :password, :password_confirmation, :email, :blocked, :permission_ids => [])
   end
