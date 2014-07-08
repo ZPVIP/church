@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625185649) do
+ActiveRecord::Schema.define(version: 20140708222102) do
 
   create_table "calendars", force: true do |t|
     t.date     "datum"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20140625185649) do
     t.string   "register_ip"
     t.integer  "birth_month"
     t.string   "spouse"
+    t.integer  "user_id"
   end
 
   add_index "contacts", ["authenticated"], name: "index_contacts_on_authenticated", using: :btree
@@ -116,6 +117,14 @@ ActiveRecord::Schema.define(version: 20140625185649) do
   add_index "services", ["lft"], name: "index_services_on_lft", using: :btree
   add_index "services", ["parent_id"], name: "index_services_on_parent_id", using: :btree
   add_index "services", ["rgt"], name: "index_services_on_rgt", using: :btree
+
+  create_table "user_contacts", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "contact_id"
+  end
+
+  add_index "user_contacts", ["contact_id", "user_id"], name: "index_user_contacts_on_contact_id_and_user_id", using: :btree
+  add_index "user_contacts", ["user_id", "contact_id"], name: "index_user_contacts_on_user_id_and_contact_id", using: :btree
 
   create_table "user_permissions", id: false, force: true do |t|
     t.integer "permission_id"

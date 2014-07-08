@@ -24,6 +24,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
+    @contact.user = current_user
     @contact.save ? (redirect_to contacts_path) : (render :new)
   end
 
@@ -33,6 +34,7 @@ class ContactsController < ApplicationController
   end
 
   def update
+    unless @contact.updaters.include? current_user; @contact.updaters << current_user;  end
     @contact.update(contact_params) ? (redirect_to contacts_path) : (render :edit)
   end
 
