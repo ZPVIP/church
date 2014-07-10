@@ -23,11 +23,11 @@ fetch = +refs/heads/*:refs/remotes/heroku/*
 heroku login (输入用户名和密码)
 git push heroku master
 heroku run RAILS_ENV=production bundle exec rake assets:precompile
-heroku run rake db:migrate
+heroku run rake db:schema:load
 heroku run rake db:seed
 heroku restart -a caachen
 ```
-- 管理员帐号：Peter，密码 aaaaaaaa
+- 管理员帐号：admin，密码 aaaaaaaa
 - 注册用户默认只能在`欢迎新朋友`页面填写表单
 - 其它用户权限需要管理员在`用户管理`页面编辑用户权限。
 
