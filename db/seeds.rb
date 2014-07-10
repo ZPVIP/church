@@ -3,10 +3,11 @@ if User.first.nil?
 else
   user = User.first
 end
-user.email = 'zpregister@gmail.com'
+user.email = 'youremail@example.com'
 user.password = 'aaaaaaaa'
 user.password_confirmation = 'aaaaaaaa'
 user.name = 'Peter'
+user.username = 'admin'
 user.blocked = false
 user.save!
 

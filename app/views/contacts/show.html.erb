@@ -11,11 +11,15 @@
 </h2>
 
 
-
 <div class="row">
   <div class="col-lg-12">
 
     <table class="table table-bordered table-hover tablesorter tablesorter-default" role="grid">
+      <tr>
+        <td><i class="fa fa-users"></i></td>
+        <td>小组</td>
+        <td> <% @contact.participated_groups.each{|g| %><%= g.name + ' '%><% } %> </td>
+      </tr>
       <%= render partial:'common/show_contacts',locals: {contact: @contact} %>
 
       <tr>
@@ -70,16 +74,25 @@
         <td> <%= @contact.register_ip %> </td>
       </tr>
       <tr>
+        <td><i class="fa fa-user"></i></td>
+        <td><span class="Hinweis" rel="tooltip" title="录入联系人的用户">录入</span></td>
+        <td> <% unless @contact.user.nil? %><%= @contact.user.name %><% end %> </td>
+      </tr>
+      <tr>
         <td><i class="fa fa-calendar"></i></td>
         <td><span class="Hinweis" rel="tooltip" title="信息创建时间">创建</span></td>
         <td> <%= @contact.created_at %> </td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-users"></i></td>
+        <td><span class="Hinweis" rel="tooltip" title="修改联系人的用户">修改</span></td>
+        <td> <% unless @contact.updaters.nil? %><% @contact.updaters.each{|u| %><%= u.name + ' '%><% } %><% end %> </td>
       </tr>
       <tr>
         <td><i class="fa fa-calendar"></i></td>
         <td><span class="Hinweis" rel="tooltip" title="信息更新时间">更新</span></td>
         <td> <%= @contact.updated_at %> </td>
       </tr>
-
     </table>
   </div>
 </div><!-- /.row -->
