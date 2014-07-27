@@ -37,6 +37,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# https://github.com/Empact/roo
+gem 'roo' 
+
+# https://github.com/continuum/active_importer
+gem 'active_importer'
+
 group :development do
   gem 'seed_dump'
 end
@@ -62,4 +68,4 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-ruby "2.1.1"
+ruby "2.1.2"

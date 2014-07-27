@@ -54,6 +54,31 @@ class ContactsController < ApplicationController
     redirect_to contacts_path
   end
 
+  # massively import records
+  def import
+    if not params[:file].respond_to?(:original_filename)
+      notice_msg= "Please select a file"; return 
+    end
+    
+    file_ext = File.extname(params[:file].original_filename)
+    user_info = {:current_user=> current_user, :ip=>my_ip}
+    begin
+      ci = ContactImporter.new(params[:file].path, extension: file_ext.to_sym, params: user_info)
+      import_result=ci.import
+      if ci.row_errors.length == 0 and ci.error_msg.empty?
+        notice_msg="Import completed!"
+      else
+        notice_msg= ci.error_msg
+      end
+    rescue => e
+      notice_msg=e.message
+      #raise
+    end
+  ensure
+      redirect_to contacts_path, notice:  notice_msg
+  end
+  
+  
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_contact
