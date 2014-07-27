@@ -62,7 +62,7 @@ class ContactImporter < ActiveImporter::Base
   end
 
   on :row_error do |e|
-    puts_err "Cannot import row[%d] due to %s." % [@row_index, e.message ]
+    puts_err "Error at row[%d]" % @row_index
   end
 
   # update existing contact
@@ -70,7 +70,7 @@ class ContactImporter < ActiveImporter::Base
     if not row['email'].blank?   
       g=Contact.find_or_initialize_by( email: row['email'] )
       if not g.new_record? and not(row['overwrite?']=="yes")
-          abort_on_error "unable to update existing contacts at row[%d]. To force update, set the colume 'overwrite?' to 'yes'." % @row_index
+          abort_on_error "email conflict (to force update, set the colume 'overwrite?' to 'yes')"
       end
       g
     else
@@ -105,13 +105,18 @@ private
   def look_up_in(mydict, key)
     key ||= ""
     g = mydict[key.strip.downcase]
-    puts_err "unsupported value %s at row[%d]." % [key, @row_index] if g.nil?
+    abort_on_error "unsupported value '%s'" % key if g.nil?
     g
   end
   
   def abort_on_error(msg)
-     puts_err msg
-     abort! msg
+    puts_err msg
+    if transactional?
+      puts_err "Error at row[%d]" % @row_index
+      abort! msg
+    else
+      raise msg
+    end
   end
 
   def puts_err (msg)

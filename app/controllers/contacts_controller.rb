@@ -44,6 +44,8 @@ class ContactsController < ApplicationController
   end
 
   def update_month
+    #this is an inefficient way 
+    #http://guides.rubyonrails.org/active_record_querying.html#retrieving-multiple-objects
     @contacts = Contact.all
     @contacts.each{|c|
       unless c.birthday.nil?
@@ -55,15 +57,15 @@ class ContactsController < ApplicationController
   end
 
   # massively import records
+  def newimport
+  end
   def import
-    if not params[:file].respond_to?(:original_filename)
-      notice_msg= "Please select a file"; return 
-    end
-    
-    file_ext = File.extname(params[:file].original_filename)
     user_info = {:current_user=> current_user, :ip=>my_ip}
     begin
-      ci = ContactImporter.new(params[:file].path, extension: file_ext.to_sym, params: user_info)
+      file = params[:file]
+      raise "Please select a file" unless file.respond_to?(:original_filename) 
+      file_ext = File.extname(file.original_filename)
+      ci = ContactImporter.new(file.path, extension: file_ext.to_sym, params: user_info)
       import_result=ci.import
       if ci.row_errors.length == 0 and ci.error_msg.empty?
         notice_msg="Import completed!"
@@ -73,9 +75,11 @@ class ContactsController < ApplicationController
     rescue => e
       notice_msg=e.message
       #raise
+    ensure
+      #redirect_to contacts_path, notice:  notice_msg
+      @import_result_msg = notice_msg
+      @contacts = Contact.readonly.where(user: current_user, updated_at: 30.seconds.ago..Time.now  ).order('updated_at DESC')
     end
-  ensure
-      redirect_to contacts_path, notice:  notice_msg
   end
   
   

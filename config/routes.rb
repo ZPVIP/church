@@ -22,6 +22,7 @@ Caachen::Application.routes.draw do
     collection do
       match 'update_month' => 'contacts#update_month', via: [:get], as: :update_month
       post :import
+      get :newimport
     end
   end
 

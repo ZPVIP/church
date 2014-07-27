@@ -1,4 +1,4 @@
-<%= render partial: 'common/header', locals: {sub_title: '联系人', breadcrumb: '所有联系人', new_path: new_contact_path} %>
+<%= render partial: 'common/header', locals: {sub_title: '联系人', breadcrumb: '所有联系人', new_path: new_contact_path, import_path: newimport_contacts_path} %>
 
 <div class="row">
   <div class="col-lg-12">
@@ -27,9 +27,3 @@
 
   </div>
 </div><!-- /.row -->
-
-<h2>Import Contacts</h2>
-<%= form_tag import_contacts_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
