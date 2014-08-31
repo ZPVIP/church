@@ -44,16 +44,38 @@ class ContactsController < ApplicationController
   end
 
   def update_month
-    @contacts = Contact.all
-    @contacts.each{|c|
+    #http://guides.rubyonrails.org/active_record_querying.html#retrieving-multiple-objects
+    Contact.find_each(batch_size: 100) do |c|
       unless c.birthday.nil?
-        c.birth_month=c.birthday.month
-        c.save!
+        c.update_attribute(:birth_month, c.birthday.month)
       end
-    }
+    end
     redirect_to contacts_path
   end
 
+  # massively import records
+  def import
+    user_info = {:current_user=> current_user, :ip=>my_ip}
+    begin
+      file = params[:file]
+      raise '请选择一个要上传的文件！' unless file.respond_to?(:original_filename)
+      file_ext = File.extname(file.original_filename)
+      ci = ContactImporter.new(file.path, extension: file_ext.to_sym, params: user_info)
+      import_result=ci.import
+      if ci.row_errors.length == 0 and ci.error_msg.empty?
+        flash[:notice]= "祝贺你，所有数据都成功导入了！<br>请在联系人列表中逐个编辑用红色背景标记的联系人。<br>检查无误后，请在“审核”一栏打勾，并提交修改。"
+      else
+        flash[:error]= ci.error_msg
+      end
+    rescue => e
+      flash[:error]= e.message
+      #raise
+    ensure
+      @contacts = Contact.readonly.where(user: current_user, updated_at: 30.seconds.ago..Time.now  ).order('updated_at DESC')
+    end
+  end
+  
+  
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_contact
