@@ -1,0 +1,6 @@
+<%= render partial: 'common/header', locals: {sub_title: '联系人', breadcrumb: '导入结果', new_path: nil} %>
+<textarea rows="10" cols="80" readonly=ture>
+<%= @import_result_msg %>
+</textarea>
+<h3>最近导入的联系人</h3>
+<%= render 'common/contacts_table' %>

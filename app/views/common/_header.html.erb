@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-lg-12">
-    <h1><%=homepage_name %> <small><%=sub_title %></small><% unless new_path.nil? %> <a href="<%= new_path %>" class="btn btn-success btn-xs"><i class="fa fa-plus-square"></i> 添加</a><% end %>  </h1>
+    <h1><%=homepage_name %> <small><%=sub_title %></small>
+    <% unless new_path.nil? %> 
+    <a href="<%= new_path %>" class="btn btn-success btn-xs"><i class="fa fa-plus-square"></i> 添加</a>
+    <% end %>  
+    <%=  link_to('<i class="fa fa-plus-square"></i> 导入'.html_safe, import_path, class: "btn btn-success btn-xs") if defined? import_path and not(import_path.blank?) %>
+    </h1>
     <ol class="breadcrumb">
       <li><a href="/"><i class="fa fa-dashboard"></i> 主页</a></li>
       <li class="active"><i class="fa fa-table"></i> <%=breadcrumb %></li>
