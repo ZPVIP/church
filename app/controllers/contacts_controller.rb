@@ -44,40 +44,33 @@ class ContactsController < ApplicationController
   end
 
   def update_month
-    #this is an inefficient way 
     #http://guides.rubyonrails.org/active_record_querying.html#retrieving-multiple-objects
-    @contacts = Contact.all
-    @contacts.each{|c|
+    Contact.find_each(batch_size: 100) do |c|
       unless c.birthday.nil?
-        c.birth_month=c.birthday.month
-        c.save!
+        c.update_attribute(:birth_month, c.birthday.month)
       end
-    }
+    end
     redirect_to contacts_path
   end
 
   # massively import records
-  def newimport
-  end
   def import
     user_info = {:current_user=> current_user, :ip=>my_ip}
     begin
       file = params[:file]
-      raise "Please select a file" unless file.respond_to?(:original_filename) 
+      raise '请选择一个要上传的文件！' unless file.respond_to?(:original_filename)
       file_ext = File.extname(file.original_filename)
       ci = ContactImporter.new(file.path, extension: file_ext.to_sym, params: user_info)
       import_result=ci.import
       if ci.row_errors.length == 0 and ci.error_msg.empty?
-        notice_msg="Import completed!"
+        flash[:notice]= "祝贺你，所有数据都成功导入了！<br>请在联系人列表中逐个编辑用红色背景标记的联系人。<br>检查无误后，请在“审核”一栏打勾，并提交修改。"
       else
-        notice_msg= ci.error_msg
+        flash[:error]= ci.error_msg
       end
     rescue => e
-      notice_msg=e.message
+      flash[:error]= e.message
       #raise
     ensure
-      #redirect_to contacts_path, notice:  notice_msg
-      @import_result_msg = notice_msg
       @contacts = Contact.readonly.where(user: current_user, updated_at: 30.seconds.ago..Time.now  ).order('updated_at DESC')
     end
   end

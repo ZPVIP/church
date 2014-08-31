@@ -3,16 +3,16 @@ class ContactImporter < ActiveImporter::Base
   imports Contact
   #transactional # this feature is not problematic
   skip_rows_if { row['name'].blank? or not row['skip?'].blank? }
-  
-  
+
+
   @@gender_mapping = {"male"=>1, "1"=>1, "female"=>0, "0"=>0}
 
-  @@findus_mapping = {"搜索引擎"=>0, "网站或论坛"=>1, "活动宣传"=>2, "团契朋友介绍"=>3, "其它"=>4}
-  
-  @@findus_mapping.default = 4
-  
+  @@find_us_mapping = {"搜索引擎"=>0, "网站或论坛"=>1, "活动宣传"=>2, "团契朋友介绍"=>3, "其它"=>4}
+
+  @@find_us_mapping.default = 4
+
   def error_msg
-    @error_msg ||= ""
+    @error_msg ||= ''
   end
 
 
@@ -36,8 +36,6 @@ class ContactImporter < ActiveImporter::Base
   column 'native place', :native_place
   column 'spouse', :spouse
   column 'authenticated', :authenticated
-  #column 'q', :q
-
   column 'name', :name do |contact_name|
     contact_name.strip
   end
@@ -47,7 +45,7 @@ class ContactImporter < ActiveImporter::Base
   end
 
   column 'how to find us', :find_us do |v|
-    if v.nil? then v else look_up_in @@findus_mapping, v end
+    if v.nil? then v else look_up_in @@find_us_mapping, v end
   end
   
   column 'participated group', :participated_group_ids do |group_name|
@@ -62,15 +60,15 @@ class ContactImporter < ActiveImporter::Base
   end
 
   on :row_error do |e|
-    puts_err "Error at row[%d]" % @row_index
+    puts_err "第 [%d] 行数据没有成功导入！" % @row_index
   end
 
   # update existing contact
   fetch_model do
-    if not row['email'].blank?   
-      g=Contact.find_or_initialize_by( email: row['email'] )
+    if not row[:email].blank?
+      g=Contact.find_or_initialize_by( email: row[:email] )
       if not g.new_record? and not(row['overwrite?']=="yes")
-          abort_on_error "email conflict (to force update, set the colume 'overwrite?' to 'yes')"
+          abort_on_error "email conflict (to force update, set the column 'overwrite?' to 'yes')"
       end
       g
     else
@@ -89,22 +87,22 @@ private
        return []
     end
     values = value_str.split(';')
-    labelkey = options.fetch(:label, :name)
-    valuekey = options.fetch(:value, :id)
+    label_key = options.fetch(:label, :name)
+    value_key = options.fetch(:value, :id)
     results = []
     values.each do |value|
         value.strip!
-        g = repo.find_by(**{labelkey=>value})
+        g = repo.find_by({label_key=>value})
         #Rails.logger.debug "found %s for %s" % [g,value]
-        next if g.nil? 
-        results << g.send(valuekey)
+        next if g.nil?
+        results << g.send(value_key)
     end
     results
   end
   
-  def look_up_in(mydict, key)
-    key ||= ""
-    g = mydict[key.strip.downcase]
+  def look_up_in(my_dict, key)
+    key ||= ''
+    g = my_dict[key.strip.downcase]
     abort_on_error "unsupported value '%s'" % key if g.nil?
     g
   end
@@ -112,7 +110,7 @@ private
   def abort_on_error(msg)
     puts_err msg
     if transactional?
-      puts_err "Error at row[%d]" % @row_index
+      puts_err "第 [%d] 行数据没有成功导入！" % @row_index
       abort! msg
     else
       raise msg
@@ -120,7 +118,7 @@ private
   end
 
   def puts_err (msg)
-     @error_msg ||=""
-     @error_msg+=msg+"\n"
+     @error_msg ||=''
+     @error_msg+=msg+"<br>"
   end
 end

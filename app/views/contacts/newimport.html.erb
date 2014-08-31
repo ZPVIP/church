@@ -3,8 +3,10 @@
 <p>请下载<%=  link_to 'Excel模板', '/sample-import-file.xls'  %>， 按照模板内的提示编辑后提交</p>
 <p>支持的文件格式: xls, csv, xlsx, xml, ods, xls.zip, ods.zip等</p>
 
+
+
 <%= form_tag import_contacts_path, multipart: true do %>
   <%= label_tag 'file', '请选择Excel文件' %>
   <%= file_field_tag :file %>
-  <%= submit_tag "导入" %>
+  <%= submit_tag "导入", :class => "btn btn-primary" %>
 <% end %>
