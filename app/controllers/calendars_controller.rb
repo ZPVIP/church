@@ -35,10 +35,10 @@ class CalendarsController < ApplicationController
         tmp_name += '<span class="green">' + ch.name + ':</span> '
         if not ch.leaf?
           ch.children.each do|chi|
-            tmp_name += chi.name.blank? ? ('<span class="fuchsia">未填写</span> '):('<span class="blue">' + chi.name + '</span> ');
+            tmp_name += chi.name.blank? ? ('<span class="fuchsia">未填</span> '):('<span class="blue">' + chi.name + '</span> ');
           end
         else
-          tmp_name += '<span class="fuchsia">未填写</span> ';
+          tmp_name += '<span class="fuchsia">未填</span> ';
         end
       end
       c.name = tmp_name
@@ -93,7 +93,7 @@ class CalendarsController < ApplicationController
 
   # PATCH/PUT /calendars/1
   def update
-    @calendar.update(calendar_params) ? (redirect_to calendars_path, notice: '值日表更新成功。.') : (render 'edit')
+    @calendar.update(calendar_params) ? (redirect_to services_edit_calendars_path(@calendar.datum.to_s), notice: '值日表项目成功。.') : (render edit_calendar_path(@calendar))
   end
 
   # DELETE /calendars/1

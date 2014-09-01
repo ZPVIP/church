@@ -7,7 +7,7 @@
         <%= f.error_notification %>
         <%= f.input :datum, as: :string, disabled: true, label: '日期'%>
         <%= f.input :parent_id, disabled: true, :collection => nested_set_options(@calendar.root, @calendar) {|i| "#{'⇢' * i.level} #{i.name}" }, label: '父目录'%>
-        <%= f.input :name, label: '人员'%>
+        <%= f.input :name, label: '项目'%>
         <div class="form-actions">
           <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary" %>
         </div>

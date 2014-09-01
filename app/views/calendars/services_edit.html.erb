@@ -23,9 +23,9 @@
             </td>
             <td style="min-width:120px;"><%=
                 if calendar.level==0
-                  ('<span class="red">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
+                  link_to('<i class="fa fa-edit"></i>'.html_safe, edit_calendar_path(calendar)) + ('&nbsp;&nbsp;<span class="red">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
                 elsif calendar.level==1
-                  ('<span class="green">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
+                  link_to('<i class="fa fa-edit"></i>'.html_safe, edit_calendar_path(calendar)) + ('&nbsp;&nbsp;<span class="green">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
                 elsif calendar.level==2
                   ('<span class="blue">' + "#{'⇢' * calendar.level} #{calendar.name}" + '</span>').html_safe
                 end;%></td>
