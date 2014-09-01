@@ -9,6 +9,7 @@
       <tr>
         <th>ID</th>
         <th>&nbsp;</th>
+        <th>&nbsp;</th>
         <th>项目</th>
         <th>删</th>
       </tr>
@@ -17,15 +18,16 @@
       <% @calendars.each do |calendar| %>
           <tr id="tr_<%=calendar.id%>" <%= (calendar.level==0)?('class="odd"'.html_safe):''%>>
             <td style="width:30px;min-width:30px;"> <%= calendar.id %></td>
+            <td style="width:30px;min-width:30px;"> <%= (calendar.level!=2)?link_to('<i class="fa fa-edit"></i>'.html_safe, edit_calendar_path(calendar)):'' %></td>
             <td style="width:70px;min-width:70px;">
               <%= if    calendar.level==1 && (calendar.leaf?);link_to('<i class="fa fa-user"></i> 添加'.html_safe, '#', class: "add_name", parent_id: calendar.id, datum: calendar.datum, 'data-ajax'=> 'false');
                   elsif calendar.level==2;link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, '#', :class => 'update_name', id:calendar.id, name: calendar.name, 'data-ajax'=> 'false');end%>
             </td>
             <td style="min-width:120px;"><%=
                 if calendar.level==0
-                  link_to('<i class="fa fa-edit"></i>'.html_safe, edit_calendar_path(calendar)) + ('&nbsp;&nbsp;<span class="red">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
+                  ('<span class="red">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
                 elsif calendar.level==1
-                  link_to('<i class="fa fa-edit"></i>'.html_safe, edit_calendar_path(calendar)) + ('&nbsp;&nbsp;<span class="green">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
+                  ('<span class="green">' + "#{'&nbsp;&nbsp;&nbsp;&nbsp;' * calendar.level} #{calendar.name}" + '</span>').html_safe
                 elsif calendar.level==2
                   ('<span class="blue">' + "#{'⇢' * calendar.level} #{calendar.name}" + '</span>').html_safe
                 end;%></td>
@@ -60,36 +62,6 @@
 </div>
 
 
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-<div>&nbsp;</div>
-
-
+<% 30.times do %>
+   <div>&nbsp;</div>
+<% end %>
