@@ -8,8 +8,9 @@
         <%= f.input :datum, as: :string, disabled: true, label: '日期'%>
         <%= f.input :parent_id, disabled: true, :collection => nested_set_options(@calendar.root, @calendar) {|i| "#{'⇢' * i.level} #{i.name}" }, label: '父目录'%>
         <%= f.input :name, label: '项目'%>
-        <div class="form-actions">
+        <div class="form-actions col-lg-9 col-md-10 col-sm-12 col-xs-12">
           <%= f.submit "提交", data: {disable_with: '正在提交...'}, :class => "btn btn-primary" %>
+          <%= button_tag '取消', :class => "btn btn-danger", :type=>'button', :onclick => 'javascript:history.back()' %>
         </div>
     <% end %>
 
