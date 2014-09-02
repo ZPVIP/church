@@ -3,16 +3,28 @@ Church
 
 这是在[亚琛华人基督徒团契](http://www.caachen.de) 使用的一套教会联系人和事奉管理系统，基本上是定制的所有功能，如果其它教会或查经班想使用本系统，可以改掉相关信息即可。
 
-如果有功能上的建议或改进，欢迎发 Pull Request。
+如果有功能上的建议或改进，欢迎发 Pull Request，这里有[教程](http://happycasts.net/episodes/37)。
 
 ###部署到 Heroku
 - 在[Heroku](http://www.heroku.com) 注册一个免费帐户，新建一个APP，比如说 caachen
+- 点击 caachen，在 Setting 里面有一项 `Config Variables`，这里是一些环境变量。为了能发邮件，请在这里添加相关变量：
+   ```
+   GMAIL_DOMAIN     gmail.com
+   GMAIL_USERNAME   example@gmail.com
+   GMAIL_PASSWORD   mypassword
+   ```
 - 在本地电脑上 clone 一份代码 `git clone git@github.com:ZPVIP/church.git`
-- 把 config/database.example.yml 改名为  config/database.yml
-- 打开 .gitignore，删除最后一行 database.yml，保存
 - 点击 Heroku 最上面导航栏的 Databases 新建一个 Postgresql 数据库
-- 将数据库 Connection Settings 的相关信息填入 config/database.yml 的 `production:` 下面
-- 编辑 .git/config，最下面加上相关信息，请把 caachen 换成你的 APP 名字
+- 添加成功后，系统会自动生成一个环境变量 `HEROKU_POSTGRESQL_GREEN_URL`，因为在 `config/database.yml`中生产环境设置就是用的这个变量，所以可以不作改动。
+- 申请免费的 Add on: new relic，用来监视网站状态。在 new relic 的后台得到一个 license_key，把它也添加到环境变量中：
+  ```
+  NEW_RELIC_LICENSE_KEY  d3d283080808749374880480
+  ```
+- 编辑 `config/newrelic.yml` 以及 `.git/config`，请把 caachen 换成你的 APP 名字
+```
+app_name: CAachen
+```
+
 ```
 [remote "heroku"]
 url = git@heroku.com:caachen.git
@@ -32,7 +44,7 @@ heroku restart -a caachen
 - 其它用户权限需要管理员在`用户管理`页面编辑用户权限。
 
 - 发送 Email，比如用在重置密码方面: 系统默认使用 Gmail 帐户，如使用其它 Email 系统可以在 config/environments/production.rb 更改
-- 设置 Email 帐号，请将 www.caachen.de 换成你的网站域名，例子：`heroku config:add GMAIL_PASSWORD=password12345 GMAIL_USERNAME=youremail@gmail.com GMAIL_DOMAIN=gmail.com APP_DOMAIN=www.caachen.de`
+- 设置 Email 帐号.如果你在第二步没有在管理后台添加环境变量，也可以在这用命令行的方式：例子：`heroku config:add GMAIL_PASSWORD=password12345 GMAIL_USERNAME=youremail@gmail.com GMAIL_DOMAIN=gmail.com APP_DOMAIN=www.caachen.de`
 - 第一次发送邮件时，Gmail 一般会认为有人黑了你的帐号，所以会发送失败，你可以先登录 Gmail，再点击这个[链接](https://www.google.com/accounts/DisplayUnlockCaptcha)。
 
 ## 系统使用说明
