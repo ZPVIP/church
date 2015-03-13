@@ -11,7 +11,9 @@ class CalendarsController < ApplicationController
     tmp_str = ''
 
     unless params[:q].blank?
-      @tmp_report += '聚会时间：' + @calendars.first.datum.year.to_s + '年' + @calendars.first.datum.month.to_s + '月' + @calendars.first.datum.day.to_s + '日 周六15:00-17:30&#13;&#10;聚会地点：3号房间，FeG Roermonder Straße 110，52062 Aachen&#13;&#10;&#13;&#10;'
+      unless @calendars.blank?
+        @tmp_report += '聚会时间：' + @calendars.first.datum.year.to_s + '年' + @calendars.first.datum.month.to_s + '月' + @calendars.first.datum.day.to_s + '日 周六15:00-17:30&#13;&#10;聚会地点：3号房间，FeG Roermonder Straße 110，52062 Aachen&#13;&#10;&#13;&#10;'
+      end
       @calendars.each do |c|
         c.children.each do |ch|
           if not ch.leaf?
