@@ -2,7 +2,7 @@
     <%= f.input :name, :required => true, label: '姓名' %>
     <%= f.input :gender, as: :radio_buttons, collection: [['男', 1], ['女', 0]], label: '性别' %>
     <%= f.input :job, label: '<span class="Hinweis" rel="tooltip" title="现在的状况">职业</span>'.html_safe, placeholder: '在校学生，工作人士，正找工作等' %>
-    <%= f.input :birthday, label: '生日'.html_safe, as: :date, start_year: Time.now.year - 70, end_year: Time.now.year - 8, order: [:year, :month, :day], default: { year: 1990, month: 1, day: 1 } %>
+    <%= f.input :birthday, label: '生日'.html_safe, as: :date, start_year: 1900, end_year: Time.now.year, order: [:year, :month, :day], default: { year: 1990, month: 1, day: 1 } %>
     <%= f.input :email, placeholder: 'CAachen@gmail.com' %>
     <%= f.input :mobile, label: '手机', placeholder: '+49 176 1234 5678' %>
     <%= f.input :telephone, label: '座机', placeholder: '+49 241 1234 5678' %>

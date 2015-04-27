@@ -55,7 +55,6 @@
             <tr class="<%= (calendar.datum.cweek.remainder(2)==1)?'odd':'even'%>">
               <td style="width:45px;min-width:45px;"><%= link_to(calendar.datum.to_s,  services_edit_calendars_path(calendar.datum.to_s), 'data-no-turbolink' => true)%></td>
               <td style="min-width:120px;"><%= "#{'⇢' * calendar.level} #{calendar.name}".html_safe %></td>
-              <!--td style="width:70px;min-width:70px;"><%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe,  services_edit_calendars_path(calendar.datum.to_s), :class => "blue")%></td-->
               <% if can? :manage, Calendar %><td style="width:30px;min-width:30px;"><%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, services_delete_calendars_path(calendar.datum.to_s), :class => "red", :method => :delete, data: {confirm: '你确定要删除这天"所有小组"的服事安排吗？'}) %></td><% end %>
             </tr>
         <% end %>
