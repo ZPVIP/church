@@ -32,17 +32,16 @@ class ContactsController < ApplicationController
       params[:contact]["birthday(3i)"]=1.to_s
     end
     @contact = Contact.new(contact_params)
-    @contact.user = current_user
+    @contact.user = current_user unless current_user.nil?
     @contact.save ? (redirect_to contacts_path) : (render :new)
   end
-
 
   def edit
     @groups = Group.all
   end
 
   def update
-    unless @contact.updaters.include? current_user; @contact.updaters << current_user;  end
+    @contact.updaters << current_user unless @contact.updaters.include? current_user
     @contact.update(contact_params) ? (redirect_to contacts_path) : (render :edit)
   end
 
