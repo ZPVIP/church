@@ -6,7 +6,13 @@
 <tr>
   <td><i class="fa fa-calendar"></i></td>
   <td>生日</td>
-  <td> <%= contact.birthday %> </td>
+  <td>
+    <% if contact.unknown_birthday %>
+      未知
+    <% elsif !contact.birthday.nil? %>
+      <%= contact.birthday %>
+    <% end %>
+  </td>
 </tr>
 <tr>
   <td><i class="fa fa-envelope"></i></td>

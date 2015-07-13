@@ -52,8 +52,12 @@
               <% end end %>
         </td>
         <td>
-          <% unless contact.birthday.nil? %><%= contact.birthday.strftime('%Y-%m') %>
-          <% end %></td>
+          <% if contact.unknown_birthday %>
+            未知
+          <% elsif !contact.birthday.nil? %>
+              <%= contact.birthday.strftime('%m-%d') %>
+          <% end %>
+        </td>
         <td>
           <% unless contact.come.nil? %><%= contact.come.strftime('%Y-%m') %>
           <% end %></td>

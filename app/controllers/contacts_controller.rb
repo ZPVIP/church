@@ -23,6 +23,14 @@ class ContactsController < ApplicationController
   end
 
   def create
+    if params[:contact][:unknown_year]
+      params[:contact]["birthday(1i)"]=1900.to_s
+    end
+    if params[:contact][:unknown_birthday]
+      params[:contact]["birthday(1i)"]=1900.to_s
+      params[:contact]["birthday(2i)"]=1.to_s
+      params[:contact]["birthday(3i)"]=1.to_s
+    end
     @contact = Contact.new(contact_params)
     @contact.user = current_user
     @contact.save ? (redirect_to contacts_path) : (render :new)
@@ -46,7 +54,9 @@ class ContactsController < ApplicationController
   def update_month
     #http://guides.rubyonrails.org/active_record_querying.html#retrieving-multiple-objects
     Contact.find_each(batch_size: 100) do |c|
-      unless c.birthday.nil?
+      if c.unknown_birthday
+        c.update_attribute(:birth_month, 0)
+      elsif !c.birthday.nil?
         c.update_attribute(:birth_month, c.birthday.month)
       end
     end

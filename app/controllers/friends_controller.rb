@@ -35,6 +35,10 @@ class FriendsController < ApplicationController
     if params[:friend][:unknown_year]
       params[:friend]["birthday(1i)"]=1900.to_s
     end
+    if !current_user.nil?
+      params[:friend][:user_id] = current_user.id
+    end
+
     @friend = Friend.new(friend_params)
     @friend.save ? (redirect_to friend_path(@friend), notice: '谢谢！您的信息已被保存.') : (render :new)
   end
@@ -68,6 +72,7 @@ class FriendsController < ApplicationController
         :pray,
         :comment,
         :register_ip,
+        :user_id,
         :participated_gathering_ids => []
     )
   end
