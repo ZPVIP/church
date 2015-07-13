@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831193422) do
+ActiveRecord::Schema.define(version: 20150713210518) do
 
-  create_table "calendars", force: true do |t|
+  create_table "calendars", force: :cascade do |t|
     t.date     "datum"
-    t.string   "name"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth"
+    t.string   "name",       limit: 255
+    t.integer  "parent_id",  limit: 4
+    t.integer  "lft",        limit: 4
+    t.integer  "rgt",        limit: 4
+    t.integer  "depth",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,48 +29,50 @@ ActiveRecord::Schema.define(version: 20140831193422) do
   add_index "calendars", ["parent_id"], name: "index_calendars_on_parent_id", using: :btree
   add_index "calendars", ["rgt"], name: "index_calendars_on_rgt", using: :btree
 
-  create_table "contact_gatherings", force: true do |t|
-    t.integer  "contact_id"
-    t.integer  "gathering_id"
+  create_table "contact_gatherings", force: :cascade do |t|
+    t.integer  "contact_id",   limit: 4
+    t.integer  "gathering_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "contact_groups", force: true do |t|
-    t.integer  "group_id"
-    t.integer  "contact_id"
+  create_table "contact_groups", force: :cascade do |t|
+    t.integer  "group_id",   limit: 4
+    t.integer  "contact_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "contacts", force: true do |t|
-    t.string   "name"
-    t.integer  "gender"
-    t.string   "telephone"
-    t.string   "mobile"
-    t.string   "email"
-    t.string   "address"
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name",               limit: 255
+    t.integer  "gender",             limit: 4
+    t.string   "telephone",          limit: 255
+    t.string   "mobile",             limit: 255
+    t.string   "email",              limit: 255
+    t.string   "address",            limit: 255
     t.date     "birthday"
-    t.text     "comment"
+    t.text     "comment",            limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "come"
     t.date     "go"
     t.date     "decision"
-    t.string   "decision_with"
+    t.string   "decision_with",      limit: 255
     t.date     "baptism"
-    t.string   "wechat"
-    t.string   "job"
-    t.integer  "find_us"
-    t.string   "find_us_additional"
-    t.integer  "friend_id"
-    t.text     "pray"
-    t.boolean  "authenticated",      default: false
-    t.string   "native_place"
-    t.string   "register_ip"
-    t.integer  "birth_month"
-    t.string   "spouse"
-    t.integer  "user_id"
+    t.string   "wechat",             limit: 255
+    t.string   "job",                limit: 255
+    t.integer  "find_us",            limit: 4
+    t.string   "find_us_additional", limit: 255
+    t.integer  "friend_id",          limit: 4
+    t.text     "pray",               limit: 65535
+    t.boolean  "authenticated",      limit: 1,     default: false
+    t.string   "native_place",       limit: 255
+    t.string   "register_ip",        limit: 255
+    t.integer  "birth_month",        limit: 4
+    t.string   "spouse",             limit: 255
+    t.integer  "user_id",            limit: 4
+    t.boolean  "unknown_year",       limit: 1
+    t.boolean  "unknown_birthday",   limit: 1
   end
 
   add_index "contacts", ["authenticated"], name: "index_contacts_on_authenticated", using: :btree
@@ -78,37 +80,39 @@ ActiveRecord::Schema.define(version: 20140831193422) do
   add_index "contacts", ["birthday"], name: "index_contacts_on_birthday", using: :btree
   add_index "contacts", ["created_at"], name: "index_contacts_on_created_at", using: :btree
   add_index "contacts", ["name"], name: "index_contacts_on_name", using: :btree
+  add_index "contacts", ["unknown_birthday"], name: "index_contacts_on_unknown_birthday", using: :btree
+  add_index "contacts", ["unknown_year"], name: "index_contacts_on_unknown_year", using: :btree
 
-  create_table "gatherings", force: true do |t|
-    t.string   "gathering"
-    t.string   "description"
+  create_table "gatherings", force: :cascade do |t|
+    t.string   "gathering",   limit: 255
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "groups", force: true do |t|
-    t.string   "name"
-    t.string   "description"
+  create_table "groups", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "permissions", force: true do |t|
-    t.string   "action"
-    t.string   "subject"
-    t.string   "description"
+  create_table "permissions", force: :cascade do |t|
+    t.string   "action",      limit: 255
+    t.string   "subject",     limit: 255
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "permissions", ["description"], name: "index_permissions_on_description", using: :btree
 
-  create_table "services", force: true do |t|
-    t.string   "title"
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth"
+  create_table "services", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.integer  "parent_id",  limit: 4
+    t.integer  "lft",        limit: 4
+    t.integer  "rgt",        limit: 4
+    t.integer  "depth",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -118,38 +122,38 @@ ActiveRecord::Schema.define(version: 20140831193422) do
   add_index "services", ["parent_id"], name: "index_services_on_parent_id", using: :btree
   add_index "services", ["rgt"], name: "index_services_on_rgt", using: :btree
 
-  create_table "user_contacts", id: false, force: true do |t|
-    t.integer "user_id"
-    t.integer "contact_id"
+  create_table "user_contacts", id: false, force: :cascade do |t|
+    t.integer "user_id",    limit: 4
+    t.integer "contact_id", limit: 4
   end
 
   add_index "user_contacts", ["contact_id", "user_id"], name: "index_user_contacts_on_contact_id_and_user_id", using: :btree
   add_index "user_contacts", ["user_id", "contact_id"], name: "index_user_contacts_on_user_id_and_contact_id", using: :btree
 
-  create_table "user_permissions", id: false, force: true do |t|
-    t.integer "permission_id"
-    t.integer "user_id"
+  create_table "user_permissions", id: false, force: :cascade do |t|
+    t.integer "permission_id", limit: 4
+    t.integer "user_id",       limit: 4
   end
 
   add_index "user_permissions", ["permission_id", "user_id"], name: "index_user_permissions_on_permission_id_and_user_id", using: :btree
   add_index "user_permissions", ["user_id", "permission_id"], name: "index_user_permissions_on_user_id_and_permission_id", using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0
+    t.integer  "sign_in_count",          limit: 4,   default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.boolean  "blocked",                default: false
-    t.string   "username"
+    t.string   "name",                   limit: 255
+    t.boolean  "blocked",                limit: 1,   default: false
+    t.string   "username",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

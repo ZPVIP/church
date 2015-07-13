@@ -83,7 +83,10 @@ class ContactsController < ApplicationController
   end
 
   def set_birth_month
-    unless @contact.birthday.nil?
+    if @contact.unknown_birthday
+      @contact.birth_month=0
+      @contact.save!
+    elsif !@contact.birthday.nil?
       @contact.birth_month=@contact.birthday.month
       @contact.save!
     end
@@ -99,6 +102,8 @@ class ContactsController < ApplicationController
         :wechat,
         :address,
         :birthday,
+        :unknown_year,
+        :unknown_birthday,
         :birth_month,
         :come,
         :decision,

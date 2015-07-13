@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-gem "simple_form", "~> 3.0.1"
+gem "simple_form", "~> 3.1.0"
 gem 'devise'
 
 gem 'bootstrap-sass', '~> 3.3.1'

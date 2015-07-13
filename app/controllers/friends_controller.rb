@@ -32,6 +32,9 @@ class FriendsController < ApplicationController
 
   # POST /friends
   def create
+    if params[:friend][:unknown_year]
+      params[:friend]["birthday(1i)"]=1900.to_s
+    end
     @friend = Friend.new(friend_params)
     @friend.save ? (redirect_to friend_path(@friend), notice: '谢谢！您的信息已被保存.') : (render :new)
   end
@@ -57,6 +60,7 @@ class FriendsController < ApplicationController
         :email,
         :wechat,
         :birthday,
+        :unknown_year,
         :come,
         :job,
         :find_us,
