@@ -42,6 +42,19 @@ class ContactsController < ApplicationController
 
   def update
     @contact.updaters << current_user unless @contact.updaters.include? current_user
+
+    if params[:contact][:'birthday(1i)'] == 1900.to_s
+      params[:contact][:unknown_year] = '1'
+    else
+      params[:contact][:unknown_year] = '0'
+    end
+
+    if params[:contact][:'birthday(1i)'] == 1900.to_s && params[:contact][:'birthday(2i)'] == 1.to_s && params[:contact][:'birthday(3i)'] == 1.to_s
+      params[:contact][:unknown_birthday] = '1'
+    else
+      params[:contact][:unknown_birthday] = '0'
+    end
+
     @contact.update(contact_params) ? (redirect_to contacts_path) : (render :edit)
   end
 
