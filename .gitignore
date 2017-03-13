@@ -15,3 +15,8 @@
 /log/*.log
 /tmp
 .idea/
+
+config/application.yml
+config/cp_yml_church.sh
+config/deploy.rb
+config/deploy/production.rb

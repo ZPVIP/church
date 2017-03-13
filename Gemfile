@@ -45,10 +45,15 @@ gem 'roo'
 # https://github.com/continuum/active_importer
 gem 'active_importer'
 
+gem 'mysql2'
+
+gem 'puma'
+
 group :development do
   # Use mysql as the database for Active Record
-  gem 'mysql2'
-
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
   gem 'seed_dump'
 end
 
@@ -58,8 +63,6 @@ group :doc do
 end
 
 group :production do
-  #gem 'mysql2'
-  gem 'pg', '0.15.1'
   gem 'rails_12factor', '0.0.2'
   gem 'newrelic_rpm'
 end
@@ -74,5 +77,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-ruby "2.3.0"
