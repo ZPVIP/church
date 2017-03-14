@@ -15,8 +15,6 @@ require 'capistrano/puma/nginx'   # if you want to upload a nginx site template
 #require 'capistrano/puma/jungle'  # if you need the jungle tasks
 #require 'capistrano/puma/monit'   # if you need the monit tasks
 
-require 'capistrano/sidekiq'
-
 # Load the SCM plugin appropriate to your project:
 #
 # require "capistrano/scm/hg"
