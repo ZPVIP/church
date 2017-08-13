@@ -23,10 +23,10 @@ class ContactsController < ApplicationController
   end
 
   def create
-    if params[:contact][:unknown_year]
+    if 1 == params[:contact][:unknown_year]
       params[:contact]["birthday(1i)"]=1900.to_s
     end
-    if params[:contact][:unknown_birthday]
+    if 1 == params[:contact][:unknown_birthday]
       params[:contact]["birthday(1i)"]=1900.to_s
       params[:contact]["birthday(2i)"]=1.to_s
       params[:contact]["birthday(3i)"]=1.to_s
