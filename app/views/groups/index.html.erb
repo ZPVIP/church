@@ -22,7 +22,7 @@
               <%= link_to('<i class="fa fa-edit"></i> 编辑'.html_safe, edit_group_path(group)) %>
             </td>
             <td style="width:70px;min-width:70px;">
-              <%= link_to('<i class="fa fa-trash-o"></i> 删除'.html_safe, group_path(group), :class => "red", :method => :delete, data: { confirm: '你确定吗？' }) %>
+              <%= link_to('<i class="fa fa-trash-o"></i> 删除'.html_safe, group_path(group), class: 'red', :method => :delete, data: { confirm: '你确定吗？' }) %>
             </td>
           </tr>
       <% end %>

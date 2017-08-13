@@ -34,10 +34,10 @@
               <% end %>
             </td>
             <td style="width:70px;min-width:70px;">
-              <%= link_to('<i class= "fa fa-edit"></i> 编辑'.html_safe, edit_admin_permission_path(admin_permission), :class => "blue") %>
+              <%= link_to('<i class= "fa fa-edit"></i> 编辑'.html_safe, edit_admin_permission_path(admin_permission), class: 'blue') %>
             </td>
             <td style="width:70px;min-width:70px;">
-              <%= link_to('<i class= "fa fa-trash-o""></i> 删除'.html_safe, admin_permission_path(admin_permission), method: :delete, data: { confirm: 'Are you sure?' }, :class => "red") %>
+              <%= link_to('<i class= "fa fa-trash-o""></i> 删除'.html_safe, admin_permission_path(admin_permission), method: :delete, data: { confirm: 'Are you sure?' }, class: 'red') %>
             </td>
           </tr>
       <% end %>

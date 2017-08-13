@@ -31,7 +31,7 @@
                 elsif calendar.level==2
                   ('<span class="blue">' + "#{'⇢' * calendar.level} #{calendar.name}" + '</span>').html_safe
                 end;%></td>
-            <td style="width:30px;min-width:30px;"><%= if calendar.level==2 then;link_to('<i class="fa fa-trash-o"></i>'.html_safe, calendar, :class => "red", :method => :delete, data: {confirm: '你确定吗？'});end%></td>
+            <td style="width:30px;min-width:30px;"><%= if calendar.level==2 then;link_to('<i class="fa fa-trash-o"></i>'.html_safe, calendar, class: 'red', :method => :delete, data: {confirm: '你确定吗？'});end%></td>
           </tr>
       <% end %>
       </tbody>

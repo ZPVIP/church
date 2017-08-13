@@ -20,7 +20,7 @@
   <% @contacts.each do |contact| %>
       <tr <%unless contact.authenticated%>style="background-color:#F2DEDE;"<%end;%>>
         <td>
-          <%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_contact_path(contact), :class => "blue") %>
+          <%= link_to('<i class= "fa fa-edit"></i>'.html_safe, edit_contact_path(contact), class: 'blue') %>
         </td>
         <td> <%= link_to(contact_path(contact)) do %>
               <% if contact.gender==0 %>
@@ -87,7 +87,7 @@
               <% end end %>
         </td>
         <td>
-          <%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, contact_path(contact), :class => "red", :method => :delete, data: {confirm: '你确定吗？'}) %>
+          <%= link_to('<i class="fa fa-trash-o"></i>'.html_safe, contact_path(contact), class: 'red', :method => :delete, data: {confirm: '你确定吗？'}) %>
         </td>
       </tr>
   <% end %>
