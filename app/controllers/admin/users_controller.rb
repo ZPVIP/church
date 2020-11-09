@@ -11,7 +11,7 @@ class Admin::UsersController < ApplicationController
 
   def update
     success = false
-    if params[:id] == current_user.id.to_s
+    if params[:id] == current_user&.id.to_s
       redirect_to admin_users_path, alert: "你不能在这里修改自己的信息，请点击右上角的设置"
     else
       if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
