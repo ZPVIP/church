@@ -49,6 +49,8 @@ gem 'mysql2'
 
 gem 'puma'
 
+gem 'bigdecimal', '1.4.2'
+
 group :development do
   # Use mysql as the database for Active Record
   gem 'capistrano-rails'
