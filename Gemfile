@@ -28,8 +28,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 gem "ransack"
 gem 'will_paginate', '~> 3.0'
 gem 'cancancan', '~> 1.8'
-gem "awesome_nested_set", '~> 3.0.0.rc.3'
-gem "the_sortable_tree"
+gem "awesome_nested_set"
+gem "the_sortable_tree", "~> 2.5.0"
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
