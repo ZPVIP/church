@@ -10,7 +10,9 @@ require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 
 require 'capistrano/puma'         # 因为使用puma做Server，所以要加上这一条
+install_plugin Capistrano::Puma
 require 'capistrano/puma/nginx'   # if you want to upload a nginx site template
+install_plugin Capistrano::Puma::Nginx
 #require 'capistrano/puma/workers' # if you want to control the workers (in cluster mode)
 #require 'capistrano/puma/jungle'  # if you need the jungle tasks
 #require 'capistrano/puma/monit'   # if you need the monit tasks
