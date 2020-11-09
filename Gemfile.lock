@@ -46,9 +46,9 @@ GEM
       activerecord (>= 4.0.0, < 5)
     bcrypt (3.1.16)
     bigdecimal (1.4.2)
-    bootstrap-sass (3.3.5)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+    bootstrap-sass (3.4.1)
+      autoprefixer-rails (>= 5.2.1)
+      sassc (>= 2.0.0)
     builder (3.2.4)
     cancancan (1.17.0)
     capistrano (3.14.1)
@@ -85,6 +85,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.7.0)
+    ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hike (1.2.3)
@@ -176,6 +177,8 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sassc (2.4.0)
+      ffi (~> 1.9)
     sdoc (2.0.0)
       rdoc (>= 5.0)
     seed_dump (3.3.1)
@@ -219,7 +222,7 @@ DEPENDENCIES
   active_importer
   awesome_nested_set
   bigdecimal (= 1.4.2)
-  bootstrap-sass (~> 3.3.1)
+  bootstrap-sass (~> 3.4.1)
   cancancan (~> 1.8)
   capistrano-rails
   capistrano-rbenv
