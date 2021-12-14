@@ -117,7 +117,6 @@ GEM
     net-scp (3.0.0)
       net-ssh (>= 2.6.5, < 7.0.0)
     net-ssh (6.1.0)
-    newrelic_rpm (6.13.1)
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -232,7 +231,6 @@ DEPENDENCIES
   jquery-turbolinks
   jquery-ui-rails
   mysql2
-  newrelic_rpm
   puma
   rails (~> 4.2.0)
   rails_12factor (= 0.0.2)
