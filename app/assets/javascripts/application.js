@@ -19,7 +19,7 @@
 //= require_tree .
 
 $( function(){
-    $("table").tablesorter({debug: true});
+    //$("table").tablesorter({debug: true});
 
     //绑定添加链接的click事件
     $('.add_name').click(function() {
